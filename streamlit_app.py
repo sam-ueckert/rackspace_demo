@@ -10,30 +10,22 @@ import streamlit as st
 Click on the Data Center at the left to show the available PA1410's
 """
 
-# num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
-# num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
+df = pd.read_json('demo_data.json')
+# df.index = df['data_center_name']
+df.rename(columns={'data_center_name': 'Data Center'}, inplace=True)
 
-# indices = np.linspace(0, 1, num_points)
-# theta = 2 * np.pi * num_turns * indices
-# radius = indices
+# Create a dropdown menu in the sidebar with the data centers as options
+selected_data_center = st.sidebar.selectbox('Select a Data Center', df['Data Center'].unique())
 
-# x = radius * np.cos(theta)
-# y = radius * np.sin(theta)
+# Filter the DataFrame based on the selected data center
+filtered_df = df[df['Data Center'] == selected_data_center]
+# Pull the keys out of the zones column, casting it to a list to eliminate PD series object
+zones = list(filtered_df['zones'])[0]
+# st.dataframe(data = zones, hide_index=True)
+selected_zone = st.sidebar.selectbox(f'Select a Zone Within {selected_data_center}', zones)
+print(type(zones[selected_zone]))
+current_zone = pd.DataFrame(zones[selected_zone])
 
-# df = pd.DataFrame({
-#     "x": x,
-#     "y": y,
-#     "idx": indices,
-#     "rand": np.random.randn(num_points),
-# })
 
-# st.altair_chart(alt.Chart(df, height=700, width=700)
-#     .mark_point(filled=True)
-#     .encode(
-#         x=alt.X("x", axis=None),
-#         y=alt.Y("y", axis=None),
-#         color=alt.Color("idx", legend=None, scale=alt.Scale()),
-#         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
-#     ))
-data = pd.read_json('demo_data.json')
-data
+st.dataframe(data=current_zone, hide_index=True)
+# st.dataframe(data = filtered_df['zones'][0][selected_zone], hide_index=True)
