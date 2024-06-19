@@ -1,0 +1,3 @@
+[submodule "paloaltosdk"]
+	path = paloaltosdk
+	url = https://github.com/cmoses01/paloaltosdk
