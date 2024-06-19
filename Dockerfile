@@ -13,6 +13,10 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/sam-ueckert/rackspace_demo .
 
+RUN git submodule init
+
+RUN git submodule update
+
 RUN pip3 install -r requirements.txt --break-system-packages
 
 EXPOSE 8501
