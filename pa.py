@@ -6,7 +6,7 @@ import os
 
 pano = PanoramaAPI()
 
-pano.IP = ''
+pano.IP = os.environ['PANORAMA']
 pano.Username = os.environ['CDWU']
 pano.Password = os.environ['CDWP']
 pano.headers
