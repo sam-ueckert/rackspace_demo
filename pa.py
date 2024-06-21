@@ -1,6 +1,7 @@
 # THIS CODE PULLS DATA FROM PANORAMA 
 from paloaltosdk import PanoramaAPI
 import os
+from pprint import pprint
 
 pano = PanoramaAPI()
 
@@ -10,6 +11,6 @@ pano.Password = os.environ['CDWP']
 pano.headers
 pano.login()
 
-available_vsys = pano.get_available_vsys("026701009424")
-print(available_vsys)
+available_vsys = pano.get_vsys_data()
+pprint(available_vsys)
 
