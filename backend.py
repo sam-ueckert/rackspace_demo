@@ -14,7 +14,10 @@ pano.headers
 pano.login()
 
 vsys_data = pano.get_vsys_data()
-pprint(vsys_data)
+
+vsys_db.insertdata(vsys_data)
+vsys_db.reserve_vsys('026701009424')
+print(vsys_db.fetch_reservations('026701009424'))
 
 
 

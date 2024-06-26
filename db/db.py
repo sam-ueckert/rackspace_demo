@@ -1,31 +1,35 @@
 import sqlite3
 import requests
 import json
+from datetime import datetime, timedelta
 
 
 class vsysdb:
+
+    reservation_expiration_hours = 24
+
     def __init__(self, db_name="vsys.db"):
         self.db_name = db_name
         self.input_data_format = """(
-                hostname TEXT,
                 sn TEXT PRIMARY KEY,
+                hostname TEXT,
                 vsys_max INTEGER,
                 vsys_used INTEGER,
-                vsys_reserved INTEGER,
-                vsys_free INTEGER
+                vsys_free INTEGER,
                 vsys_in_use TEXT
             )"""
-        self.reservation_data = '''
-            CREATE TABLE IF NOT EXISTS reservations (
+        
+        self.reservation_data_format = '''(
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 sn TEXT,
-                vsys_id TEXT,
                 start_time TEXT,
                 duration INTEGER,
-                FOREIGN KEY(firewall_id) REFERENCES vsys(firewall_id)
+                FOREIGN KEY(sn) REFERENCES vsys(sn)
             )
         '''
         self.connect()
+        self.create_tables()
+        
         
 
     def connect(self):
@@ -34,21 +38,26 @@ class vsysdb:
         self.cur = self.conn.cursor()
         
 
-        # Create a table to store the vsys data
+    def create_tables(self):
+        # Create a table to store the vsys data if table doesn't exist
         self.cur.execute(f'''
             CREATE TABLE IF NOT EXISTS vsys {self.input_data_format}
+        ''')
+
+        self.cur.execute(f'''
+            CREATE TABLE IF NOT EXISTS reservations {self.reservation_data_format}
         ''')
 
 # Step 3: Insert JSON Data into the SQLite Database
 
     def insertdata(self, data):
         for entry in data:
+            vsys_in_use_json  = json.dumps(entry['vsys_in_use'])
             self.cur.execute('''
-                INSERT OR REPLACE INTO vsys (serial, total_vsys, used_vsys)
-                VALUES (?, ?, ?)
-            ''', )
-
-
+                    INSERT OR REPLACE INTO vsys (sn, vsys_max, vsys_used, vsys_in_use)
+                    VALUES (?, ?, ?, ?)
+                ''', (entry['sn'], entry['vsys_max'], entry['vsys_used'], vsys_in_use_json))
+        
         self.conn.commit()
 
 # Optional: Query the database to verify insertion
@@ -58,5 +67,51 @@ class vsysdb:
         for row in rows:
             print(row)
 
-    # # Close the connection
-    # conn.close()
+    def reserve_vsys(self, sn):
+        vsys_free = self.calculate_vsys_free(sn)
+        if vsys_free is None or vsys_free <= 0:
+            print("No VSYS available to reserve.")
+            return False  # Reservation failed
+        
+        start_time = datetime.now().isoformat()
+        
+        self.cur.execute('''
+            INSERT INTO reservations (sn, start_time, duration)
+            VALUES (?, ?, ?)
+        ''', (sn, start_time, self.reservation_expiration_hours))
+        self.conn.commit()
+        return True
+
+    def fetch_reservations(self, sn):
+        self.cur.execute('''
+            SELECT * FROM reservations
+            WHERE sn = ? AND datetime(start_time, '+' || duration || ' hours') > datetime('now')
+        ''', (sn,))
+        rows = self.cur.fetchall()
+        return rows
+    
+    def calculate_vsys_free(self, sn):
+        self.cur.execute('''
+            SELECT vsys_max, vsys_used FROM vsys
+            WHERE sn = ?
+        ''', (sn,))
+        row = self.cur.fetchone()
+        if row:
+            print("if row")
+            vsys_max, vsys_used = row
+            reservations = self.fetch_reservations(sn)
+            print(reservations)
+            # Check if reservations have expired
+            active_reservations = 0
+            now = datetime.now()
+            for reservation in reservations:
+                print(reservation)
+                start_time = datetime.fromisoformat(reservation[2])
+                duration = timedelta(hours=reservation[3])
+                if now < start_time + duration:
+                    active_reservations += 1
+            
+            vsys_free = vsys_max - vsys_used - active_reservations
+            return vsys_free
+        else:
+            return None
