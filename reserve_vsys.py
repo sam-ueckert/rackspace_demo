@@ -1,0 +1,11 @@
+from db import vsysdb
+
+vsys_db = vsysdb()
+
+reserved = vsys_db.reserve_vsys('')
+vsys_db.close_connection()
+
+if reserved: 
+    print("Vsys Reserved!")
+else:
+    print("No VSYS Available to reserve.")

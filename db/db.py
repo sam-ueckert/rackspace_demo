@@ -54,9 +54,9 @@ class vsysdb:
         for entry in data:
             vsys_in_use_json  = json.dumps(entry['vsys_in_use'])
             self.cur.execute('''
-                    INSERT OR REPLACE INTO vsys (sn, vsys_max, vsys_used, vsys_in_use)
-                    VALUES (?, ?, ?, ?)
-                ''', (entry['sn'], entry['vsys_max'], entry['vsys_used'], vsys_in_use_json))
+                    INSERT OR REPLACE INTO vsys (sn, hostname, vsys_max, vsys_used, vsys_free, vsys_in_use)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                ''', (entry['sn'], entry['hostname'], entry['vsys_max'], entry['vsys_used'], entry['vsys_free'], vsys_in_use_json))
         
         self.conn.commit()
 
@@ -70,7 +70,7 @@ class vsysdb:
     def reserve_vsys(self, sn):
         vsys_free = self.calculate_vsys_free(sn)
         if vsys_free is None or vsys_free <= 0:
-            print("No VSYS available to reserve.")
+            # No VSYS available to reserve
             return False  # Reservation failed
         
         start_time = datetime.now().isoformat()
@@ -80,6 +80,7 @@ class vsysdb:
             VALUES (?, ?, ?)
         ''', (sn, start_time, self.reservation_expiration_hours))
         self.conn.commit()
+        
         return True
 
     def fetch_reservations(self, sn):
@@ -97,15 +98,12 @@ class vsysdb:
         ''', (sn,))
         row = self.cur.fetchone()
         if row:
-            print("if row")
             vsys_max, vsys_used = row
             reservations = self.fetch_reservations(sn)
-            print(reservations)
             # Check if reservations have expired
             active_reservations = 0
             now = datetime.now()
             for reservation in reservations:
-                print(reservation)
                 start_time = datetime.fromisoformat(reservation[2])
                 duration = timedelta(hours=reservation[3])
                 if now < start_time + duration:
@@ -115,3 +113,6 @@ class vsysdb:
             return vsys_free
         else:
             return None
+        
+    def close_connection(self):
+        self.conn.close()
