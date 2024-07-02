@@ -16,8 +16,7 @@ class vsysdb:
                 vsys_max INTEGER,
                 vsys_used INTEGER,
                 vsys_free INTEGER,
-                vsys_in_use TEXT,
-                ha_peer TEXT
+                vsys_in_use TEXT
             )"""
         
         self.reservation_data_format = '''(
@@ -55,9 +54,9 @@ class vsysdb:
         for entry in data:
             vsys_in_use_json  = json.dumps(entry['vsys_in_use'])
             self.cur.execute('''
-                    INSERT OR REPLACE INTO vsys (serial, hostname, vsys_max, vsys_used, vsys_free, vsys_in_use, ha_peer)
-                    VALUES (?, ?, ?, ?, ?, ?, ?)
-                ''', (entry['serial'], entry['hostname'], entry['vsys_max'], entry['vsys_used'], entry['vsys_free'], vsys_in_use_json, entry['ha_peer']))
+                    INSERT OR REPLACE INTO vsys (serial, hostname, vsys_max, vsys_used, vsys_free, vsys_in_use)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                ''', (entry['serial'], entry['hostname'], entry['vsys_max'], entry['vsys_used'], entry['vsys_free'], vsys_in_use_json))
         
         self.conn.commit()
 
