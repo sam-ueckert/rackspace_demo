@@ -64,20 +64,17 @@ class vsysdb:
     def get_data_from_db(self):
         self.cur.execute("SELECT * FROM vsys")
         rows = self.cur.fetchall()
-        for row in rows:
-            print(row)
+        # for row in rows:
+        #     print(row)
 
     def reserve_vsys(self, serial):
 
-        ha_fw = False
+        #ha_fw = False
         # Determine if vsys are synced across HA
-        vsys_data1 = self.fetch_vsys(serial)
-        ha_peer_sn = vsys_data1[0][6]
-        if ha_peer_sn:
-            ha_fw = True
-            vsys_data_peer = self.fetch_vsys(ha_peer_sn)
-            if vsys_data1[0][5] != vsys_data_peer[0][5]: # this compares vsyss on each fw
-                raise Exception("HA Devices not Synced")
+        vsys_data = self.fetch_vsys(serial)
+        if vsys_data[2] == 'PEERS_NOT_SYNCED' or vsys_data[3] == 'PEERS_NOT_SYNCED' or vsys_data[4] == 'PEERS_NOT_SYNCED' or vsys_data[5] == 'PEERS_NOT_SYNCED':
+            raise Exception("HA Devices not Synced")
+
         
         vsys_free = self.calculate_vsys_free(serial)
         if vsys_free is None or vsys_free <= 0:
@@ -111,7 +108,7 @@ class vsysdb:
             WHERE serial = ? 
         ''', (serial,))
         rows = self.cur.fetchall()
-        return rows
+        return rows[0]
     
     def calculate_vsys_free(self, serial):
         self.cur.execute('''
