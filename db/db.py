@@ -2,11 +2,14 @@ import sqlite3
 import requests
 import json
 from datetime import datetime, timedelta
+from configuration import *
 
 
 class vsysdb:
 
-    reservation_expiration_hours = 24
+    reservation_expiration_hours = RESERVATION_MAX_HOURS
+    pa1410_max_vsys = PA1410_MAX_VSYS
+
 
     def __init__(self, db_name="vsys.db"):
         self.db_name = db_name
@@ -15,7 +18,6 @@ class vsysdb:
                 hostname TEXT,
                 vsys_max INTEGER,
                 vsys_used INTEGER,
-                vsys_free INTEGER,
                 vsys_in_use TEXT
             )"""
         
@@ -50,13 +52,13 @@ class vsysdb:
 
 # Step 3: Insert JSON Data into the SQLite Database
 
-    def insertdata(self, data):
+    def insertdata(self, data, override_vsys_max=True):
         for entry in data:
             vsys_in_use_json  = json.dumps(entry['vsys_in_use'])
             self.cur.execute('''
-                    INSERT OR REPLACE INTO vsys (serial, hostname, vsys_max, vsys_used, vsys_free, vsys_in_use)
-                    VALUES (?, ?, ?, ?, ?, ?)
-                ''', (entry['serial'], entry['hostname'], entry['vsys_max'], entry['vsys_used'], entry['vsys_free'], vsys_in_use_json))
+                    INSERT OR REPLACE INTO vsys (serial, hostname, vsys_max, vsys_used , vsys_in_use)
+                    VALUES (?, ?, ?, ?, ?)
+                ''', (entry['serial'], entry['hostname'], self.pa1410_max_vsys if override_vsys_max else entry['vsys_max'], entry['vsys_used'], vsys_in_use_json))
         
         self.conn.commit()
 
@@ -68,11 +70,15 @@ class vsysdb:
         #     print(row)
 
     def reserve_vsys(self, serial):
+        '''
+        if HA pair, serial is 'HIGHERSN_LOWERSN'
+        '''
 
-        #ha_fw = False
         # Determine if vsys are synced across HA
+
         vsys_data = self.fetch_vsys(serial)
-        if vsys_data[2] == 'PEERS_NOT_SYNCED' or vsys_data[3] == 'PEERS_NOT_SYNCED' or vsys_data[4] == 'PEERS_NOT_SYNCED' or vsys_data[5] == 'PEERS_NOT_SYNCED':
+
+        if vsys_data[2] == 'PEERS_NOT_SYNCED' or vsys_data[3] == 'PEERS_NOT_SYNCED' or vsys_data[4] == 'PEERS_NOT_SYNCED':
             raise Exception("HA Devices not Synced")
 
         
@@ -89,7 +95,7 @@ class vsysdb:
         self.cur.execute('''
             INSERT INTO reservations (serial, start_time, duration)
             VALUES (?, ?, ?)
-        ''', (serial if not ha_fw else f"{max(serial, ha_peer_sn)}_{min(serial, ha_peer_sn)}", start_time, self.reservation_expiration_hours))
+        ''', (serial, start_time, self.reservation_expiration_hours))
         self.conn.commit()
         
         return True

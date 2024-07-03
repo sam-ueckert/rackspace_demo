@@ -14,9 +14,9 @@ pano.login()
 
 
 vsys_data = pano.get_vsys_data()
-print(vsys_data)
-vsys_db.insertdata(vsys_data)
-vsys_db.close_connection()
+print(vsys_data[4])
+# vsys_db.insertdata(vsys_data)
+# vsys_db.close_connection()
 
 
 
