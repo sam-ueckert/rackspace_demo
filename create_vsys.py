@@ -14,7 +14,7 @@ pano.headers
 pano.login()
 
 
-pprint(pano.create_vsys("test", "4", "026701009424"))
+pprint(pano.create_vsys("test2", "auto", "026701009424"))
 
 
 pano.commit(target='026701009424')
