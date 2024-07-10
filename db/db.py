@@ -69,7 +69,7 @@ class vsysdb:
         # for row in rows:
         #     print(row)
 
-    def reserve_vsys(self, serial):
+    def reserve_vsys(self, serial, vsys_name):
         '''
         if HA pair, serial is 'HIGHERSN_LOWERSN'
         '''

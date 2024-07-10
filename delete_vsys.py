@@ -14,8 +14,9 @@ pano.headers
 pano.login()
 
 
-resp = pano.create_vsys("test3", 'auto', "026701009351")
-print(resp)
+resp = pano.delete_vsys("test2", 6, "026701009424")
+with open('asdfasdf.json', 'w') as f:
+    f.write(json.dumps(resp, indent=2))
 
 
 
