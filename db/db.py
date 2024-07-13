@@ -2,13 +2,17 @@ import sqlite3
 import requests
 import json
 from datetime import datetime, timedelta
-from configuration import *
+import toml
 
+# Load the settings from a TOML file
+settings = toml.load("settings.toml")
+# for key, value in settings.items(): # Load the settings into global variables
+#     globals()[key] = value
 
 class vsysdb:
 
-    reservation_expiration_hours = RESERVATION_MAX_HOURS
-    pa1410_max_vsys = PA1410_MAX_VSYS
+    reservation_expiration_hours = settings['RESERVATION_MAX_HOURS']
+    pa1410_max_vsys = settings['PA1410_MAX_VSYS']
 
 
     def __init__(self, db_name="vsys.db"):
@@ -58,7 +62,7 @@ class vsysdb:
             self.cur.execute('''
                     INSERT OR REPLACE INTO vsys (serial, hostname, vsys_max, vsys_used , vsys_in_use)
                     VALUES (?, ?, ?, ?, ?)
-                ''', (entry['serial'], entry['hostname'], self.pa1410_max_vsys if override_vsys_max else entry['vsys_max'], entry['vsys_used'], vsys_in_use_json))
+                ''', (entry['sn'], entry['hostname'], self.pa1410_max_vsys if override_vsys_max else entry['vsys_max'], len(vsys_in_use_json), vsys_in_use_json))
         
         self.conn.commit()
 
