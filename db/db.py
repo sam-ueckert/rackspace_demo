@@ -62,7 +62,7 @@ class vsysdb:
             self.cur.execute('''
                     INSERT OR REPLACE INTO vsys (serial, hostname, vsys_max, vsys_used , vsys_in_use)
                     VALUES (?, ?, ?, ?, ?)
-                ''', (entry['sn'], entry['hostname'], self.pa1410_max_vsys if override_vsys_max else entry['vsys_max'], len(vsys_in_use_json), vsys_in_use_json))
+                ''', (entry['serial'], entry['hostname'], self.pa1410_max_vsys if override_vsys_max else entry['vsys_max'], entry['vsys_used'], vsys_in_use_json))
         
         self.conn.commit()
 
