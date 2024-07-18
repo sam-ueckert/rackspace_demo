@@ -1,34 +1,36 @@
+from paloaltosdk import PanoramaAPI
+from db import vsysdb
+import os
+import json
+from pprint import pprint
 
-    def create_tag(self, name, comments="", location="vsys"):
-        if location == "vsys":
-            uri = f'Objects/tags?location={location}&{location}={self.vsys}&name={name}'
-        else:
-            uri = f'Objects/Addresses?location={location}&name={name}'
+pano = PanoramaAPI()
+vsys_db = vsysdb()
 
-        payload = {
-            "entry": {
-                "@name": name,
-                "description": comments
-            }
-        } 
-
-        resp = self._post_req(self.rest_uri+uri,payload)
-
-        return resp.json()
-    
-
-   def get_vsys_data(self, device_list=None):
-        """
-        returns the number (int) of vsys unused
-
-        if no sn specified, method will pull all devices. 
+pano.IP = os.environ['PANORAMA']
+pano.Username = os.environ['CDWU']
+pano.Password = os.environ['CDWP']
+pano.headers
+pano.login()
 
 
-        Firewall must be in multi vsys mode to have return data
-        """
-        
-        devices_vsys = []
-        if not device_list:
-            devices = self.get_devices()
-        else:
-            devices = device_list
+# serial = '026701009351'
+serial = '026701009424'
+# serial = None
+payload = f'''
+            <entry name="NOT_USED">
+            <color>color15</color>
+            </entry>
+                '''
+# xpath = f"/config/devices/entry/vsys/entry[@name='vsys3']/tag/entry[@name='NOT_USED-test']=<color>color15</color>"
+# xpath = f"/config/devices/entry/vsys/entry"
+xpath = "/config/devices/entry/vsys/entry[@name='vsys6']"
+# # pprint(pano.get_config_xml(xpath, serial))
+action = 'get'
+# with open('xml_to_json.json', 'w') as f:
+#     json.dump(pano.config_xml_generic(xpath=xpath, serial=serial, action=action), f, indent=4)
+# pano.commit(target='serial')
+# # with open ('response.xml', 'w') as f:
+# #     f.write(pano.config_xml_generic(xpath=xpath, serial=serial, action=action))
+# xpath = "/config/devices/entry/vsys/entry[@name='vsys6']/tag"
+pprint(pano.config_xml_generic(xpath=xpath, serial=serial))

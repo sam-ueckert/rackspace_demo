@@ -14,7 +14,7 @@ pano.headers
 pano.login()
 
 
-resp = pano.create_vsys("test3", 'auto', "026701009351")
+resp = pano.create_vsys("test3", '6', "026701009424")
 print(resp)
 
 
