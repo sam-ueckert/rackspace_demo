@@ -15,9 +15,14 @@ pano.login()
 
 
 resp = pano.delete_vsys("test3", 6, "026701009424")
-with open('asdfasdf.json', 'w') as f:
-    f.write(json.dumps(resp, indent=2))
+
+# with open('asdfasdf.json', 'w') as f:
+#     f.write(json.dumps(resp, indent=2))
 
 
 
 pano.commit(target='026701009424')
+resp = pano.delete_vsys("test3", 6, "026701009424")
+
+pano.commit(target='026701009351')
+resp = pano.delete_vsys("test3", 6, "026701009351")

@@ -1,4 +1,4 @@
-from paloaltosdk import PanoramaAPI
+from paloaltosdk import PanoramaAPI, PanOSAPI
 from db import vsysdb
 import os
 import json
@@ -13,7 +13,14 @@ pano.Password = os.environ['CDWP']
 pano.headers
 pano.login()
 
-
+panrest = PanOSAPI(os.environ['PANORAMA'])
+panrest.IP = os.environ['PANORAMA']
+panrest.Username = os.environ['CDWU']
+panrest.Password = os.environ['CDWP']
+panrest.headers
+panrest.login()
+print(panrest.sw_version)
+print(pano.get_api_version())
 # serial = '026701009351'
 serial = '026701009424'
 # serial = None
@@ -33,4 +40,7 @@ action = 'get'
 # # with open ('response.xml', 'w') as f:
 # #     f.write(pano.config_xml_generic(xpath=xpath, serial=serial, action=action))
 # xpath = "/config/devices/entry/vsys/entry[@name='vsys6']/tag"
-pprint(pano.config_xml_generic(xpath=xpath, serial=serial))
+# pprint(pano.config_xml_generic(xpath=xpath, serial=serial))
+
+tags = panrest.get_tags()
+pprint(tags.reason)
