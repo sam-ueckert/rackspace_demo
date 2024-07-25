@@ -22,7 +22,7 @@ resp = pano.delete_vsys("test3", 6, "026701009424")
 
 
 pano.commit(target='026701009424')
-resp = pano.delete_vsys("test3", 6, "026701009424")
+# resp = pano.delete_vsys("test3", 6, "026701009424")
 
-pano.commit(target='026701009351')
-resp = pano.delete_vsys("test3", 6, "026701009351")
+# pano.commit(target='026701009351')
+# resp = pano.delete_vsys("test3", 6, "026701009351")

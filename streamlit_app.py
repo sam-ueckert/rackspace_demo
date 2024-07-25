@@ -2,7 +2,20 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
+from paloaltosdk import PanoramaAPI
 
+import os
+from pprint import pprint
+
+pano = PanoramaAPI()
+pano.IP = os.environ['PANORAMA']
+pano.Username = os.environ['CDWU']
+pano.Password = os.environ['CDWP']
+pano.login()
+
+@st.cache_data
+def get_vsys_data():
+    pano.get_vsys_data()
 """
 # Rackspace Demo Dashboard
 ## Palo Alto 1410 Utilization
