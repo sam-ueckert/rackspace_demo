@@ -5,4 +5,4 @@ RESERVATION_MAX_HOURS = 0.0083
 PA1410_MAX_VSYS = 5 # default vsys plus 4
 
 # Max days a reservation is valid
-RESERVATION_MAX_DAYS = 14
+RESERVATION_MAX_DAYS = 0

@@ -9,4 +9,4 @@ pano.Username = os.environ['CDWU']
 pano.Password = os.environ['CDWP']
 pano.login()
 
-print(pano.get_sys_info('026701009351'))
+print(pano.get_sys_info('026701009424'))

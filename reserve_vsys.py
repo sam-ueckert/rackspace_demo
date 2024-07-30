@@ -6,7 +6,7 @@ from pprint import pprint
 vsys_db = vsysdb()
 
 sn = '026701009424_026701009351'
-vsys_name = 'CUSTOMERA-VSYS'
+vsys_name = 'RESERVED-test'
 
 # reserved_in_db = vsys_db.reserve_vsys(sn, vsys_name)
 
@@ -37,10 +37,9 @@ if reserved_in_db:
 
                             pprint(device['@name'])
                             found_active_peer = True
-                            try:
-                                resp = pano.create_vsys(vsys_name=vsys_name, vsys_id='auto', serial=device['@name'])
+                            resp = pano.create_vsys(vsys_name=vsys_name, vsys_id='auto', serial=device['@name'], tag_name='RESERVED')
+                            print(pano.commit(target=device['@name']))
                             
-                            continue
                     else:
                         raise Exception("VSYS RESERVE FAILED: Unable to determine HA Active Peer. HA Not present.")
     
@@ -48,3 +47,4 @@ if reserved_in_db:
     #print("Vsys Reserved!")
 else:
     print("No VSYS Available to reserve.")
+
