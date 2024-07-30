@@ -91,14 +91,12 @@ def clear_expired_reservations(devices:list, pano:PanoramaAPI):
         f.write(json.dumps(list_of_reservations, indent=2))
     # flagged_for_deletion = check_vsys_reservation_date(list_of_reservations)
     flagged_for_deletion = find_expired_reservations(list_of_reservations)
-    for 
-    pprint.pprint(flagged_for_deletion)
-
+    for vsys in flagged_for_deletion:
+        try:
+            resp = pano.delete_vsys(serial=vsys['serial'], vsys_name=vsys['@name'])
+            print(resp)
+            pano.commit(target=vsys['serial'])
+        except Exception as e:
+            print(e)
     
-    
-                                        # try:
-                                        #     pano.delete_vsys(entry['name'])
-                                        # except Exception as e:
-                                        #     print(e)
-                                        #     return None
      
