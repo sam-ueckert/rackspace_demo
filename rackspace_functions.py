@@ -50,6 +50,9 @@ def get_all_reserved_vsys(devices_vsys: list):
     ''' Returns a list of all reserved VSYS on the Panorama. '''
     list_of_reservations = []
     for device in devices_vsys:
+        # if device['vysy_max'] == 'PEERS_NOT_SYNCED':
+            # print(f'Skipping device {device['hostname']}with peers not synced')
+            continue
         for vsys in device['vsys_in_use']:
             if vsys['display-name'].startswith('RESERVED-'):
                 vsys['serial'] = device['serial'].split('_')[0]

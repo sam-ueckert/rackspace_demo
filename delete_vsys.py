@@ -14,7 +14,7 @@ pano.headers
 pano.login()
 
 
-resp = pano.delete_vsys("RESERVED-test", 4, "026701009424")
+resp = pano.delete_vsys(serial="026701009424", vsys_id=4, )
 
 # with open('asdfasdf.json', 'w') as f:
 #     f.write(json.dumps(resp, indent=2))

@@ -14,7 +14,7 @@ pano.headers
 pano.login()
 
 
-resp = pano.create_vsys("purple", 'auto', "026701009424", tag_name="RESERVED")
+resp = pano.create_vsys("RESERVED-test-one", 'auto', "026701009424", tag_name="RESERVED")
 print(resp)
 
 

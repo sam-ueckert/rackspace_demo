@@ -17,10 +17,10 @@ pano.login()
 def get_vsys_data():
     pano.get_vsys_data()
 """
-# Rackspace Demo Dashboard
-## Palo Alto 1410 Utilization
+# Rackspace Vsys Dashboard
+## Track allocated vsys by firewall
 
-Click on the Data Center at the left to show the available PA1410's
+Click on the Data Center at the left to start
 """
 
 df = pd.read_json('demo_data.json')
