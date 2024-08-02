@@ -3,25 +3,32 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 from paloaltosdk import PanoramaAPI
+from dotenv import load_dotenv
 
 import os
 from pprint import pprint
 
-pano = PanoramaAPI()
-pano.IP = os.environ['PANORAMA']
-pano.Username = os.environ['CDWU']
-pano.Password = os.environ['CDWP']
+load_dotenv("./.env")
+
+
 pano.login()
 
-@st.cache_data
-def get_vsys_data():
-    pano.get_vsys_data()
+
 """
 # Rackspace Vsys Dashboard
 ## Track allocated vsys by firewall
 
 Click on the Data Center at the left to start
 """
+
+@st.cache_data
+def get_vsys_data():
+    pano.get_vsys_data()
+
+@st.cache_resource
+def create_pano():
+    pano = PanoramaAPI()
+
 
 df = pd.read_json('demo_data.json')
 # df.index = df['data_center_name']
