@@ -4,3 +4,4 @@ streamlit
 requests
 tqdm
 xmltodict
+python-dotenv

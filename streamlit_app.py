@@ -11,7 +11,7 @@ from pprint import pprint
 load_dotenv("./.env")
 
 
-pano.login()
+
 
 
 """
@@ -22,17 +22,19 @@ Click on the Data Center at the left to start
 """
 
 @st.cache_data
-def get_vsys_data():
+def get_vsys_data(pano):
     pano.get_vsys_data()
 
 @st.cache_resource
 def create_pano():
     pano = PanoramaAPI()
-
+    pano.login()
+    return pano
 
 df = pd.read_json('demo_data.json')
 # df.index = df['data_center_name']
 df.rename(columns={'data_center_name': 'Data Center'}, inplace=True)
+pano = create_pano
 
 # Create a dropdown menu in the sidebar with the data centers as options
 selected_data_center = st.sidebar.selectbox('Select a Data Center', df['Data Center'].unique())
@@ -46,6 +48,11 @@ selected_zone = st.sidebar.selectbox(f'Select a Zone Within {selected_data_cente
 print(type(zones[selected_zone]))
 current_zone = pd.DataFrame(zones[selected_zone])
 
-
-st.dataframe(data=current_zone, hide_index=True)
+# Make selectable rows of firewalss in selected zone
+fw_event = st.dataframe(data=current_zone,use_container_width=True, on_select="rerun", hide_index=True, selection_mode="multi-row")
 # st.dataframe(data = filtered_df['zones'][0][selected_zone], hide_index=True)
+
+#Create new dataframe with selected firewalls
+st.header('Selected Firewalls')
+fw_selection = fw_event.selection.rows
+
