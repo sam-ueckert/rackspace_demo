@@ -53,6 +53,11 @@ fw_event = st.dataframe(data=current_zone,use_container_width=True, on_select="r
 # st.dataframe(data = filtered_df['zones'][0][selected_zone], hide_index=True)
 
 #Create new dataframe with selected firewalls
-st.header('Selected Firewalls')
+st.header('Reserve VSYS on selected Firewalls')
 fw_selection = fw_event.selection.rows
-
+filtered_df = current_zone.iloc[fw_selection]
+if not filtered_df.empty:
+    if st.button('Submit'):
+        st.session_state['selected_firewalls'] = filtered_df['firewall_name'].tolist()
+        st.rerun()
+# st.dataframe(data = filtered_df, hide_index=True)  #TODO add column_config=column_configuration move to new page
