@@ -64,29 +64,29 @@ current_zone = pd.DataFrame(zones[selected_zone])
 # convert the vsys data to a dataframe
 vsys_df = pd.DataFrame(all_vsys)
 # Extract hostname and VSYS display name
-vsys_display_df = vsys_df.drop(columns=['serial', 'vsys_in_use'])
-vsys_display_df.rename(columns={'vsys_max': 'Max Vsys',
+# vsys_display_df = vsys_df.drop(columns=['serial', 'vsys_in_use'])
+vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
                                  'vsys_used': 'Used Vsys',
                                 'vsys_free': 'Free Vsys', 
                                 'hostname': "Firewall"},
-                                inplace=True)
+                                inplace=False)
 # vsys_display_df['hostname'].pop('serial')
 # pprint(vsys_display_df)
 # Make selectable rows of firewalss in selected zone
-fw_event = st.dataframe(data=vsys_display_df, use_container_width=True, on_select="rerun", hide_index=True, selection_mode="multi-row")
+fw_event = st.dataframe(data=vsys_display_df, use_container_width=True, on_select="rerun", hide_index=True, selection_mode="multi-row", column_order=['Firewall', 'Max Vsys', 'Used Vsys', 'Free Vsys'])
 
 #Create new dataframe with selected firewalls
 st.header('Reserve VSYS on selected Firewalls')
 fw_selection = fw_event.selection.rows
 edit_fws_df = vsys_display_df.iloc[fw_selection]
-edit_fws_df = pd.DataFrame(edit_fws_df['Firewall'])
+# edit_fws_df = pd.DataFrame(edit_fws_df['Firewall'])
 edit_fws_df['Reserved VSYS ID'] = None
 
 # st.write(type(edit_fws_df))
 # edit_fws_df = edit_fws_df.assign(Reserved_VSYS = None)
 if not edit_fws_df.empty:
-    st.write(edit_fws_df)
+    fw_event = st.data_editor(data=edit_fws_df, use_container_width=True, hide_index=True, disabled=['Reserved VSYS ID'], column_order=['Firewall', 'Reserved VSYS ID'])
     if st.button('Submit'):
-        st.session_state['selected_firewalls'] = edit_fws_df['Firewall'].tolist()
+        # st.session_state['selected_firewalls'] = edit_fws_df['Firewall'].tolist()
         st.rerun()
 # st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
