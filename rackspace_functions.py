@@ -3,8 +3,13 @@ import pprint
 import toml
 import json
 import datetime
+import os
+import pandas as pd
+from dotenv import load_dotenv
+
 
 settings = toml.load("settings.toml")
+load_dotenv("./.env")
 
 def create_vsys_reservation(sn:str, vsys_name:str, devices:list, pano:PanoramaAPI):
     ''' Creates a VSYS reservation on the Panorama, taging the VSYS as RESERVED and prefixing the name with RESERVED-.'''
@@ -100,3 +105,29 @@ def clear_expired_reservations(devices:list, pano:PanoramaAPI):
             print(e)
     
      
+def create_batch_vsys_reservations(reservations:pd.DataFrame, devices:list):
+    ''' Creates a batch of VSYS reservations on the Panorama. Creates new pano connection for writes, instead of reusing app connection.'''
+    max_reservation_days = settings['RESERVATION_MAX_DAYS']
+    reservation_prefix = settings['RESERVATION_PREFIX']
+    today = datetime.datetime.now()
+    # Set the expiration date to the max reservation (set in .toml file) days from today
+    expiration_date = (today + datetime.timedelta(days=max_reservation_days)).strftime('%Y-%d-%m')
+    pano = PanoramaAPI()
+    pano.IP = os.environ['PANORAMA']
+    pano.Username = os.environ['CDWU']
+    pano.Password = os.environ['CDWP']
+    try:
+        pano.login()
+    except Exception as e:
+        print('Failed to login to Panorama')
+        pano.logger.error(e)
+    
+    for index, device in reservations.iterrows():
+        # Create vysy, using the name prefix and the expiration date
+        serial = device['serial'].split('_')[0]
+        print(f"Creating VSYS: {device['Reserved Vsys ID']}_{expiration_date} on {serial}")
+        resp = pano.create_vsys(vsys_name=f"RES_{device['Reserved Vsys ID']}_{expiration_date}", vsys_id='auto', serial=device['serial'])
+        print(resp)
+        pano.commit(target=serial)
+    return resp
+            

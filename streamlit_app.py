@@ -96,10 +96,11 @@ if not edit_fw_df.empty:
                               )
     if st.button('Submit'):
         try:
-            resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df, pano=pano, devices=all_devices)
+            resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df, devices=all_devices)
             st.write(resp)
             st.rerun()
         except Exception as e:
             st.write(e)
+        
 
 # st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
