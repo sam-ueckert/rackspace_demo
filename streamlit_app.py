@@ -12,9 +12,6 @@ from pprint import pprint
 load_dotenv("./.env")
 
 
-
-
-
 """
 # Rackspace Vsys Dashboard
 ## Track allocated vsys by firewall
@@ -70,20 +67,39 @@ vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
                                 'hostname': "Firewall"},
                                 inplace=False)
 # Make selectable rows of firewalss in selected zone
-fw_event = st.dataframe(data=vsys_display_df, use_container_width=True, on_select="rerun", hide_index=True, selection_mode="multi-row", column_order=['Firewall', 'Max Vsys', 'Used Vsys', 'Free Vsys'])
+fw_event = st.dataframe(data=vsys_display_df, 
+                        use_container_width=True, 
+                        on_select="rerun", 
+                        hide_index=True, 
+                        selection_mode="multi-row", 
+                        column_order=['Firewall', 
+                                      'Max Vsys', 
+                                      'Used Vsys', 
+                                      'Free Vsys']
+                        )
 
 #Create new dataframe with selected firewalls
 st.header('Reserve VSYS on selected Firewalls')
 fw_selection = fw_event.selection.rows
 # add all selected rows to a new dataframe. Each click will rerun the script, so the dataframe will be updated with the new selection
-edit_fws_df = vsys_display_df.iloc[fw_selection]
+edit_fw_df = vsys_display_df.iloc[fw_selection]
 # add a column to the new dataframe to allow the user to input a reserved vsys id
-edit_fws_df['Reserved VSYS ID'] = None
+edit_fw_df['Reserved Vsys ID'] = None
 
 # Working with the selected rows (firewalls)
-if not edit_fws_df.empty:
-    fw_event = st.data_editor(data=edit_fws_df, use_container_width=True, hide_index=True, disabled=['Firewall'], column_order=['Firewall', 'Reserved VSYS ID'])
+if not edit_fw_df.empty:
+    edited_fw_df = st.data_editor(data=edit_fw_df, 
+                              use_container_width=True, 
+                              hide_index=True, 
+                              disabled=['Firewall'], 
+                              column_order=['Firewall', 'Reserved Vsys ID']
+                              )
     if st.button('Submit'):
-        # st.session_state['selected_firewalls'] = edit_fws_df['Firewall'].tolist()
-        st.rerun()
+        try:
+            resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df, pano=pano, devices=all_devices)
+            st.write(resp)
+            st.rerun()
+        except Exception as e:
+            st.write(e)
+
 # st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
