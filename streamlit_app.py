@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 from paloaltosdk import PanoramaAPI
 from dotenv import load_dotenv
+import rackspace_functions as rf
 
 import os
 from pprint import pprint
@@ -30,6 +31,13 @@ def create_pano():
     pano = PanoramaAPI()
     pano.login()
     return pano
+
+#create a cached PanoramaAPI object
+pano = create_pano()
+# get all device data, then pass this data to other functions instead of continuing to query Panorama
+all_devices = pano.get_devices()
+all_vsys = pano.get_vsys_data(all_devices)
+
 
 df = pd.read_json('demo_data.json')
 # df.index = df['data_center_name']
