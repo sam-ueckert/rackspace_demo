@@ -21,7 +21,3 @@ with open('vsys_data.json', 'w') as f:
 # vsys_db.insertdata(vsys_data)
 # vsys_db.close_connection()
 
-
-
-
-

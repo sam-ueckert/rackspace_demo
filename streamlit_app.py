@@ -60,47 +60,69 @@ current_zone = pd.DataFrame(zones[selected_zone])
 
 # convert the vsys data to a dataframe
 vsys_df = pd.DataFrame(all_vsys)
-# Extract hostname and VSYS display name
-vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
-                                 'vsys_used': 'Used Vsys',
+# Create tabbws view
+view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
+
+with view:
+    st.header('View Vsys Details')
+    vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
+                                'vsys_used': 'Used Vsys',
                                 'vsys_free': 'Free Vsys', 
-                                'hostname': "Firewall"},
+                                'hostname': "Firewall",
+                                'vsys_in_use': 'Vsys Display Names'},
                                 inplace=False)
-# Make selectable rows of firewalss in selected zone
-fw_event = st.dataframe(data=vsys_display_df, 
-                        use_container_width=True, 
-                        on_select="rerun", 
-                        hide_index=True, 
-                        selection_mode="multi-row", 
-                        column_order=['Firewall', 
-                                      'Max Vsys', 
-                                      'Used Vsys', 
-                                      'Free Vsys']
-                        )
+    for index, row in vsys_display_df.iterrows():
+        vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name'] for i in row['Vsys Display Names']]
+    st.dataframe(data=vsys_display_df, 
+                 hide_index=True,
+                 column_order=['Firewall', 'Vsys Display Names'])
+                #                'Max Vsys', 
+                #                'Used Vsys',
+                #                'Free Vsys']
+with reserve:
+    st.header('Select Firewalls to Reserve VSYS')
 
-#Create new dataframe with selected firewalls
-st.header('Reserve VSYS on selected Firewalls')
-fw_selection = fw_event.selection.rows
-# add all selected rows to a new dataframe. Each click will rerun the script, so the dataframe will be updated with the new selection
-edit_fw_df = vsys_display_df.iloc[fw_selection]
-# add a column to the new dataframe to allow the user to input a reserved vsys id
-edit_fw_df['Reserved Vsys ID'] = None
 
-# Working with the selected rows (firewalls)
-if not edit_fw_df.empty:
-    edited_fw_df = st.data_editor(data=edit_fw_df, 
-                              use_container_width=True, 
-                              hide_index=True, 
-                              disabled=['Firewall'], 
-                              column_order=['Firewall', 'Reserved Vsys ID']
-                              )
-    if st.button('Submit'):
-        try:
-            resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df, devices=all_devices)
-            st.write(resp)
-            st.rerun()
-        except Exception as e:
-            st.write(e)
+    vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
+                                    'vsys_used': 'Used Vsys',
+                                    'vsys_free': 'Free Vsys', 
+                                    'hostname': "Firewall"},
+                                    inplace=False)
+    # Make selectable rows of firewalss in selected zone
+    fw_event = st.dataframe(data=vsys_display_df, 
+                            use_container_width=True, 
+                            on_select="rerun", 
+                            hide_index=True, 
+                            selection_mode="multi-row", 
+                            column_order=['Firewall', 
+                                        'Max Vsys', 
+                                        'Used Vsys', 
+                                        'Free Vsys']
+                            )
+
+    #Create new dataframe with selected firewalls
+    st.header('Reserve VSYS on selected Firewalls')
+    fw_selection = fw_event.selection.rows
+    # add all selected rows to a new dataframe. Each click will rerun the script, so the dataframe will be updated with the new selection
+    edit_fw_df = vsys_display_df.iloc[fw_selection]
+    # add a column to the new dataframe to allow the user to input a reserved vsys id
+    edit_fw_df['Reserved Vsys ID'] = None
+
+    # Working with the selected rows (firewalls)
+    if not edit_fw_df.empty:
+        edited_fw_df = st.data_editor(data=edit_fw_df, 
+                                use_container_width=True, 
+                                hide_index=True, 
+                                disabled=['Firewall'], 
+                                column_order=['Firewall', 'Reserved Vsys ID']
+                                )
+        if st.button('Submit'):
+            try:
+                resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df, devices=all_devices)
+                st.write(resp)
+                st.rerun()
+            except Exception as e:
+                st.write(e)
         
 
 # st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
