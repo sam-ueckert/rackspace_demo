@@ -2,3 +2,7 @@
 *.db
 __pycache__
 tmp.json
+reserved.json
+vsys_data.json
+with_admin_tag.json
+xml_to_json.json
