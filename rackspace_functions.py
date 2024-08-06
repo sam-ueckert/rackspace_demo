@@ -126,7 +126,7 @@ def create_batch_vsys_reservations(reservations:pd.DataFrame, devices:list):
         # Create vysy, using the name prefix and the expiration date
         serial = device['serial'].split('_')[0]
         print(f"Creating VSYS: {device['Reserved Vsys ID']}_{expiration_date} on {serial}")
-        resp = pano.create_vsys(vsys_name=f"RES_{device['Reserved Vsys ID']}_{expiration_date}", vsys_id='auto', serial=device['serial'])
+        resp = pano.create_vsys(vsys_name=f"RES_{device['Reserved Vsys ID']}_{expiration_date}", vsys_id='auto', serial=serial)
         print(resp)
         pano.commit(target=serial)
     return resp

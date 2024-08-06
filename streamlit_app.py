@@ -72,6 +72,10 @@ with view:
                                 'vsys_in_use': 'Vsys Display Names'},
                                 inplace=False)
     for index, row in vsys_display_df.iterrows():
+        
+        if row['Free Vsys'] == "PEERS_NOT_SYNCED":
+            vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait, clear cache and refresh."]
+            continue
         vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name'] for i in row['Vsys Display Names']]
     st.dataframe(data=vsys_display_df, 
                  hide_index=True,
