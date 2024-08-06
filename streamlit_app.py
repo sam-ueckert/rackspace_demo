@@ -61,7 +61,7 @@ selected_zone = st.sidebar.selectbox(f'Select a Zone Within {selected_data_cente
 current_zone = pd.DataFrame(zones[selected_zone])
 ##### end mock sidebar data
 
-#convert the vsys data to a dataframe
+# convert the vsys data to a dataframe
 vsys_df = pd.DataFrame(all_vsys)
 # Extract hostname and VSYS display name
 vsys_display_df = vsys_df.drop(columns=['serial', 'vsys_in_use'])
@@ -74,14 +74,19 @@ vsys_display_df.rename(columns={'vsys_max': 'Max Vsys',
 # pprint(vsys_display_df)
 # Make selectable rows of firewalss in selected zone
 fw_event = st.dataframe(data=vsys_display_df, use_container_width=True, on_select="rerun", hide_index=True, selection_mode="multi-row")
-# st.dataframe(data = filtered_df['zones'][0][selected_zone], hide_index=True)
 
 #Create new dataframe with selected firewalls
 st.header('Reserve VSYS on selected Firewalls')
 fw_selection = fw_event.selection.rows
-filtered_df = current_zone.iloc[fw_selection]
-if not filtered_df.empty:
+edit_fws_df = vsys_display_df.iloc[fw_selection]
+edit_fws_df = pd.DataFrame(edit_fws_df['Firewall'])
+edit_fws_df['Reserved VSYS ID'] = None
+
+# st.write(type(edit_fws_df))
+# edit_fws_df = edit_fws_df.assign(Reserved_VSYS = None)
+if not edit_fws_df.empty:
+    st.write(edit_fws_df)
     if st.button('Submit'):
-        # st.session_state['selected_firewalls'] = filtered_df['firewall_name'].tolist()
+        st.session_state['selected_firewalls'] = edit_fws_df['Firewall'].tolist()
         st.rerun()
-# st.dataframe(data = filtered_df, hide_index=True)  #TODO add column_config=column_configuration move to new page
+# st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
