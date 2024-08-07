@@ -59,22 +59,27 @@ current_zone = pd.DataFrame(zones[selected_zone])
 ##### end mock sidebar data
 
 # convert the vsys data to a dataframe
+st.write(all_vsys)
 vsys_df = pd.DataFrame(all_vsys)
 # Create tabbws view
 view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
 
 with view:
     st.header('View Vsys Details')
-    vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
-                                'vsys_used': 'Used Vsys',
-                                'vsys_free': 'Free Vsys', 
-                                'hostname': "Firewall",
-                                'vsys_in_use': 'Vsys Display Names'},
-                                inplace=False)
+    print(vsys_df)
+    try:
+        vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
+                                    'vsys_used': 'Used Vsys',
+                                    'vsys_free': 'Free Vsys', 
+                                    'hostname': "Firewall",
+                                    'vsys_in_use': 'Vsys Display Names'},
+                                    inplace=False)
+    except Exception as e:
+        st.write(e)
     for index, row in vsys_display_df.iterrows():
         
-        if row['Free Vsys'] == "PEERS_NOT_SYNCED":
-            vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait, clear cache and refresh."]
+        if not row['Synced'] :
+            vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, clear cache and refresh."]
             continue
         vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name'] for i in row['Vsys Display Names']]
     st.dataframe(data=vsys_display_df, 
@@ -110,7 +115,7 @@ with reserve:
     # add all selected rows to a new dataframe. Each click will rerun the script, so the dataframe will be updated with the new selection
     edit_fw_df = vsys_display_df.iloc[fw_selection]
     # add a column to the new dataframe to allow the user to input a reserved vsys id
-    edit_fw_df['Reserved Vsys ID'] = None
+    edit_fw_df['Vsys Device Number'] = None
 
     # Working with the selected rows (firewalls)
     if not edit_fw_df.empty:
@@ -118,7 +123,7 @@ with reserve:
                                 use_container_width=True, 
                                 hide_index=True, 
                                 disabled=['Firewall'], 
-                                column_order=['Firewall', 'Reserved Vsys ID']
+                                column_order=['Firewall', 'Vsys Device Number']
                                 )
         if st.button('Submit'):
             try:
