@@ -1,0 +1,281 @@
+[
+    {
+        "account_number": "531598",
+        "aggr": "aggr922-63.lon5",
+        "datacenter": "lon5",
+        "device": "6123487",
+        "failover_device": "6123486",
+        "failover_serial": "8840638018",
+        "public_vlans": [
+            "165"
+        ],
+        "serial": "0887035186",
+        "vsys_capacity": "4"
+    },
+    {
+        "account_number": "584236",
+        "aggr": "aggr348-67.ord1",
+        "datacenter": "ord1",
+        "device": "7885674",
+        "failover_device": "7885673",
+        "failover_serial": "4566298856",
+        "public_vlans": [
+            "236",
+            "160",
+            "745"
+        ],
+        "serial": "0543067791",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "358029",
+        "aggr": "aggr479-43.lon5",
+        "datacenter": "lon5",
+        "device": "397330",
+        "failover_device": "397331",
+        "failover_serial": "5888326448",
+        "public_vlans": [
+            "10"
+        ],
+        "serial": "8531919584",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "359109",
+        "aggr": "aggr979-19.iad3",
+        "datacenter": "iad3",
+        "device": "9064396",
+        "failover_device": "9064397",
+        "failover_serial": "7739904632",
+        "public_vlans": [
+            "434",
+            "721"
+        ],
+        "serial": "9588021838",
+        "vsys_capacity": "4"
+    },
+    {
+        "account_number": "354183",
+        "aggr": "aggr625-89.dfw3",
+        "datacenter": "dfw3",
+        "device": "5959626",
+        "failover_device": "5959625",
+        "failover_serial": "6397275670",
+        "public_vlans": [
+            "20",
+            "217"
+        ],
+        "serial": "9086975182",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "748926",
+        "aggr": "aggr625-89.dfw3",
+        "datacenter": "dfw3",
+        "device": "5883680",
+        "failover_device": "5883681",
+        "failover_serial": "7566268170",
+        "public_vlans": [
+            "334",
+            "571"
+        ],
+        "serial": "0859236578",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "867493",
+        "aggr": "aggr603-87.ord1",
+        "datacenter": "ord1",
+        "device": "6766825",
+        "failover_device": "6766826",
+        "failover_serial": "8325705034",
+        "public_vlans": [
+            "333",
+            "323",
+            "85"
+        ],
+        "serial": "6286680023",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "882567",
+        "aggr": "aggr348-67.ord1",
+        "datacenter": "ord1",
+        "device": "1597430",
+        "failover_device": "1597431",
+        "failover_serial": "5464042575",
+        "public_vlans": [
+            "699",
+            "703",
+            "55"
+        ],
+        "serial": "2295725608",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "299756",
+        "aggr": "aggr979-19.iad3",
+        "datacenter": "iad3",
+        "device": "6972053",
+        "failover_device": "6972052",
+        "failover_serial": "8615441452",
+        "public_vlans": [
+            "780"
+        ],
+        "serial": "1181962911",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "541156",
+        "aggr": "aggr922-63.lon5",
+        "datacenter": "lon5",
+        "device": "6731921",
+        "failover_device": "6731920",
+        "failover_serial": "7445343226",
+        "public_vlans": [
+            "541",
+            "424"
+        ],
+        "serial": "6087395761",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "262541",
+        "aggr": "aggr960-75.dfw3",
+        "datacenter": "dfw3",
+        "device": "7860652",
+        "failover_device": "7860651",
+        "failover_serial": "3161401078",
+        "public_vlans": [
+            "680"
+        ],
+        "serial": "0830558349",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "830035",
+        "aggr": "aggr354-98.dfw3",
+        "datacenter": "dfw3",
+        "device": "3509387",
+        "failover_device": "3509386",
+        "failover_serial": "0985862034",
+        "public_vlans": [
+            "453"
+        ],
+        "serial": "2551897980",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "146230",
+        "aggr": "aggr922-63.lon5",
+        "datacenter": "lon5",
+        "device": "6245609",
+        "failover_device": "6245608",
+        "failover_serial": "5565830086",
+        "public_vlans": [
+            "15",
+            "530"
+        ],
+        "serial": "7418584386",
+        "vsys_capacity": "4"
+    },
+    {
+        "account_number": "493315",
+        "aggr": "aggr354-98.dfw3",
+        "datacenter": "dfw3",
+        "device": "9936407",
+        "failover_device": "9936406",
+        "failover_serial": "0542514677",
+        "public_vlans": [
+            "485",
+            "582"
+        ],
+        "serial": "9023317952",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "016408",
+        "aggr": "aggr625-89.dfw3",
+        "datacenter": "dfw3",
+        "device": "5608970",
+        "failover_device": "5608971",
+        "failover_serial": "8136553908",
+        "public_vlans": [
+            "296",
+            "37"
+        ],
+        "serial": "9685067438",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "826093",
+        "aggr": "aggr570-51.ord1",
+        "datacenter": "ord1",
+        "device": "3315473",
+        "failover_device": "3315472",
+        "failover_serial": "7345320000",
+        "public_vlans": [
+            "380",
+            "633"
+        ],
+        "serial": "7424253120",
+        "vsys_capacity": "4"
+    },
+    {
+        "account_number": "229644",
+        "aggr": "aggr348-67.ord1",
+        "datacenter": "ord1",
+        "device": "2018408",
+        "failover_device": "2018407",
+        "failover_serial": "4464548433",
+        "public_vlans": [
+            "53",
+            "771"
+        ],
+        "serial": "6781013690",
+        "vsys_capacity": "6"
+    },
+    {
+        "account_number": "497235",
+        "aggr": "aggr354-98.dfw3",
+        "datacenter": "dfw3",
+        "device": "4169310",
+        "failover_device": "4169311",
+        "failover_serial": "6648403201",
+        "public_vlans": [
+            "290",
+            "381",
+            "116"
+        ],
+        "serial": "2826765674",
+        "vsys_capacity": "4"
+    },
+    {
+        "account_number": "000143",
+        "aggr": "aggr348-67.ord1",
+        "datacenter": "ord1",
+        "device": "3677019",
+        "failover_device": "3677020",
+        "failover_serial": "2298807908",
+        "public_vlans": [
+            "367"
+        ],
+        "serial": "2483933473",
+        "vsys_capacity": "4"
+    },
+    {
+        "account_number": "097851",
+        "aggr": "aggr979-19.iad3",
+        "datacenter": "iad3",
+        "device": "7119311",
+        "failover_device": "7119312",
+        "failover_serial": "0218730161",
+        "public_vlans": [
+            "548",
+            "10",
+            "87"
+        ],
+        "serial": "9598415890",
+        "vsys_capacity": "6"
+    }
+]

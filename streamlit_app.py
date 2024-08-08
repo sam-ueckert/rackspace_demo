@@ -5,12 +5,12 @@ import streamlit as st
 from paloaltosdk import PanoramaAPI
 from dotenv import load_dotenv
 import rackspace_functions as rf
-
+import time
 import os
 from pprint import pprint
 
 load_dotenv("./.env")
-
+st.set_page_config(layout="wide")
 
 """
 # Rackspace Vsys Dashboard
@@ -59,12 +59,27 @@ current_zone = pd.DataFrame(zones[selected_zone])
 ##### end mock sidebar data
 
 # convert the vsys data to a dataframe
-st.write(all_vsys)
 vsys_df = pd.DataFrame(all_vsys)
 # Create tabbws view
 view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
 
 with view:
+    # Apply custom CSS to set the width of the container
+    st.markdown(
+        """
+        <style>
+        .view-container {
+            max-width: 2000px;  /* Adjust the width as needed */
+            margin: auto;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    # column_config={
+    #             "Vsys Display Names": st.column_config.Column(
+    #                 None, width=1000),
+    #             }
     st.header('View Vsys Details')
     print(vsys_df)
     try:
@@ -82,12 +97,11 @@ with view:
             vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, clear cache and refresh."]
             continue
         vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name'] for i in row['Vsys Display Names']]
-    st.dataframe(data=vsys_display_df, 
+    st.dataframe(data=vsys_display_df,
                  hide_index=True,
+                 use_container_width=False,
+                 width=None,
                  column_order=['Firewall', 'Vsys Display Names'])
-                #                'Max Vsys', 
-                #                'Used Vsys',
-                #                'Free Vsys']
 with reserve:
     st.header('Select Firewalls to Reserve VSYS')
 
@@ -99,7 +113,7 @@ with reserve:
                                     inplace=False)
     # Make selectable rows of firewalss in selected zone
     fw_event = st.dataframe(data=vsys_display_df, 
-                            use_container_width=True, 
+                            use_container_width=False, 
                             on_select="rerun", 
                             hide_index=True, 
                             selection_mode="multi-row", 
@@ -119,6 +133,15 @@ with reserve:
 
     # Working with the selected rows (firewalls)
     if not edit_fw_df.empty:
+        if not edit_fw_df.iloc[-1]['Synced']:
+            fw_event.selection.rows.pop()
+            # fw_selection.pop
+            edit_fw_df = edit_fw_df.iloc[:-1]
+            st.write(
+                  '**<span style="font-size:24px;color:red;">Selected firewall out of sync. Wait, clear cache, and refresh.</span>**',
+                    unsafe_allow_html=True)
+            # st.rerun()
+            
         edited_fw_df = st.data_editor(data=edit_fw_df, 
                                 use_container_width=True, 
                                 hide_index=True, 
