@@ -100,7 +100,8 @@ def make_reservations(edit_fw_df, fw_event):
                                       )
         if st.button('Submit'):
             try:
-                resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df, devices=all_devices)
+                resp = rf.create_batch_vsys_reservations(reservations=edited_fw_df,
+                                                         devices=all_devices)
                 st.write(resp)
                 st.rerun()
             except Exception as e:
@@ -149,7 +150,8 @@ def create_tabs(vsys_df):
                                                                      clear cache
                                                                      and refresh.''']
                 continue
-            vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name'] for i in row['Vsys Display Names']]
+            vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name']
+                                                               for i in row['Vsys Display Names']]
         st.dataframe(data=vsys_display_df,
                      hide_index=True,
                      use_container_width=False,
@@ -164,10 +166,10 @@ def create_tabs(vsys_df):
                                                   'hostname': "Firewall"},
                                          inplace=False)
         # Make selectable rows of firewalss in selected zone
-        fw_event = st.dataframe(data=vsys_display_df, 
+        fw_event = st.dataframe(data=vsys_display_df,
                                 use_container_width=False,
-                                on_select="rerun", 
-                                hide_index=True, 
+                                on_select="rerun",
+                                hide_index=True,
                                 selection_mode="multi-row",
                                 column_order=['Firewall',
                                               'Max Vsys',
@@ -189,8 +191,8 @@ def create_tabs(vsys_df):
         make_reservations(edit_fw_df, fw_event)
 
 
-''' Get all device data, then pass this data to other functions 
-instead of continuing to query Panorama'''
+''' Get all device data, then pass this data to other functions
+ instead of continuing to query Panorama'''
 all_devices, all_vsys = get_local_data(pano)
 
 ## Mock sidebar data
