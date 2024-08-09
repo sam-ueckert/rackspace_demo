@@ -32,9 +32,10 @@ log.exception("exception")
         def foo():
             raise Exception("Something went wrong")
 """
-import logging, logging.config
+import logging
+import logging.config
 import functools
-import json
+# import json
 from typing import Callable, ParamSpec, TypeVar, Optional
 
 
@@ -43,7 +44,10 @@ RetType = TypeVar("RetType")
 OriginalFunc = Callable[Param, RetType]
 DecoratedFunc = Callable[Param, RetType]
 
-def log_exceptions(func:OriginalFunc=None, re_raise: Optional[bool]=True, logger: Optional[logging.Logger]=logging.getLogger()) -> DecoratedFunc:
+
+def log_exceptions(func: OriginalFunc = None,
+                   re_raise: Optional[bool] = True,
+                   logger: Optional[logging.Logger] = logging.getLogger()) -> DecoratedFunc:
     if func is None:
         return functools.partial(log_exceptions, re_raise=re_raise)
 
@@ -61,37 +65,37 @@ def log_exceptions(func:OriginalFunc=None, re_raise: Optional[bool]=True, logger
 
 def setup_logger(filename='') -> logging.Logger:
     DEFAULT_LOGGING = {
-    'version': 1, # TODO move this to json logging config file
-    'disable_existing_loggers': False,
-    'formatters': { 
-        'standard': { 
-            'format': '%(asctime)s.%(msecs)03d [%(levelname)s] %(name)s: %(message)s',
-            'datefmt': "%Y-%m-%d %Z%z %H:%M:%S"
-        },
-    },
-    'handlers': { 
-        'default': { 
-            'level': 'INFO',
-            'formatter': 'standard',
-            'class': 'logging.StreamHandler',
-            'stream': 'ext://sys.stdout',  # Default is stderr
-        },
-        'logfile': { 
-            'level': 'INFO',
-            'formatter': 'standard',
-            'class': 'logging.FileHandler',
-            'filename': filename,
-        },
-    },
-    'loggers': {
-         '': {
-              'level': 'INFO',
-              'handlers' : ['default', 'logfile']
-              },
-              }
-    }
+                       'version': 1,  # TODO move this to json logging config file
+                       'disable_existing_loggers': False,
+                       'formatters': {
+                                      'standard': {
+                                          'format': '%(asctime)s.%(msecs)03d [%(levelname)s] %(name)s: %(message)s',
+                                          'datefmt': "%Y-%m-%d %Z%z %H:%M:%S"
+                                                  },
+                                  },
+                       'handlers': {
+                                    'default': { 
+                                        'level': 'INFO',
+                                        'formatter': 'standard',
+                                        'class': 'logging.StreamHandler',
+                                        'stream': 'ext://sys.stdout',  # Default is stderr
+                                    },
+                                    'logfile': { 
+                                        'level': 'INFO',
+                                        'formatter': 'standard',
+                                        'class': 'logging.FileHandler',
+                                        'filename': filename,
+                                    },
+                                },
+                       'loggers': {
+                            '': {
+                                'level': 'INFO',
+                                'handlers': ['default', 'logfile']
+                                },
+                                }
+                        }
     if filename:
-         logging.config.dictConfig(DEFAULT_LOGGING)
+        logging.config.dictConfig(DEFAULT_LOGGING)
     else:
         logging.basicConfig(level=logging.INFO)
 
@@ -112,7 +116,7 @@ if __name__ == '__main__':
         print(log)
         log.setLevel('CRITICAL')
         print(log)
-        
+
         log.setLevel('DEBUG')
         log.debug('an debug error')
         log.info('an info error')
@@ -127,7 +131,7 @@ if __name__ == '__main__':
     @log_exceptions
     def test_with_re_raise():
         raise Exception("Something went wrong")
-    
+
     test_log_levels()
     test_without_re_raise()
     print("continued without re-raise")
