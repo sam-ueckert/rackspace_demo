@@ -69,7 +69,9 @@ def setup_logger(filename='') -> logging.Logger:
                        'disable_existing_loggers': False,
                        'formatters': {
                                       'standard': {
-                                          'format': '%(asctime)s.%(msecs)03d [%(levelname)s] %(name)s: %(message)s',
+                                          'format': '''%(asctime)s.%(msecs)03d
+                                                    [%(levelname)s] %(name)s:
+                                                      %(message)s''',
                                           'datefmt': "%Y-%m-%d %Z%z %H:%M:%S"
                                                   },
                                   },
