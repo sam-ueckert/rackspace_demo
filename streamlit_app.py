@@ -175,9 +175,8 @@ def create_tabs(vsys_df):
                                               'Free Vsys']
                                 )
 
-       
         st.header('Reserve VSYS on selected Firewalls')
-         # Create new dataframe with selected firewalls
+        # Create new dataframe with selected firewalls
         fw_selection = fw_event.selection.rows
         ''' add all selected rows to a new dataframe.
         Each click will rerun the script, so the dataframe
