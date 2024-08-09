@@ -43,7 +43,7 @@ RetType = TypeVar("RetType")
 OriginalFunc = Callable[Param, RetType]
 DecoratedFunc = Callable[Param, RetType]
 
-def log_exceptions(func:OriginalFunc=None, re_raise: Optional[bool]=True, logger: Optional[logging.Logger]=None) -> DecoratedFunc:
+def log_exceptions(func:OriginalFunc=None, re_raise: Optional[bool]=True, logger: Optional[logging.Logger]=logging.getLogger()) -> DecoratedFunc:
     if func is None:
         return functools.partial(log_exceptions, re_raise=re_raise)
 
@@ -52,15 +52,13 @@ def log_exceptions(func:OriginalFunc=None, re_raise: Optional[bool]=True, logger
         try:
             return func(*args, **kwargs)
         except Exception as e:
-            if logger is None:
-                logger = logging.getLogger(func.__name__)
             logger.exception(f"Exception raised in {func.__name__}. exception: {str(e)}")
             if re_raise:
                 raise e
 
     return decorated
 
-@log_exceptions
+
 def setup_logger(filename='') -> logging.Logger:
     DEFAULT_LOGGING = {
     'version': 1, # TODO move this to json logging config file

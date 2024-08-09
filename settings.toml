@@ -9,3 +9,8 @@ RESERVATION_MAX_DAYS = 2
 
 # Prefix for vsys resrevation name
 RESERVATION_PREFIX = "RES-"
+
+# Logging setup
+LOG_LEVEL = "INFO"
+LOG_FILE = "vsys_dashboard.log"
+LOG_DIR = "logs/"
