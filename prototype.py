@@ -1,4 +1,4 @@
-from paloaltosdk import PanoramaAPI, PanOSAPI
+from paloaltosdk import PanoramaAPI
 from db import vsysdb
 import os
 import json
