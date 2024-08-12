@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     software-properties-common \
-    git \ cron \
+    git \
+    cron \
     && rm -rf /var/lib/apt/lists/*
 
 #RUN git clone https://github.com/streamlit/streamlit-example.git .
