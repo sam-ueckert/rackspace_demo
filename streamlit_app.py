@@ -17,6 +17,7 @@ settings = toml.load("settings.toml")
 log_dir = settings['LOG_DIR']
 log_file = settings['LOG_FILE']
 log_path = Path(log_dir) / log_file
+db_path = Path(settings['DB_PATH'])
 logger = setup_logger(log_path)
 # logger.info('Loadin Vsys Dashboard')
 
@@ -39,6 +40,7 @@ def create_local_pano():
 
 # create a cached PanoramaAPI object
 pano = create_local_pano()
+
 
 # Local funcions to cache data, using decorator
 @log_exceptions(logger=logger)
@@ -63,20 +65,22 @@ def get_local_data(pano: PanoramaAPI):
 @log_exceptions(logger=logger)
 def load_sidebar_data():
     '''Loads the sidebar data from a json file (later API call)'''
-    df = pd.read_json('demo_data.json')
-    df.rename(columns={'data_center_name': 'Data Center'}, inplace=True)
+    df = pd.read_json(db_path)
+    df.rename(columns={'datacenter': 'Data Center'}, inplace=True)
+
     # Create a dropdown menu in the sidebar with the data centers as options
     selected_data_center = st.sidebar.selectbox('Select a Data Center',
                                                 df['Data Center'].unique())
     # Filter the DataFrame based on the selected data center
     filtered_df = df[df['Data Center'] == selected_data_center]
-    '''
+    """
     Pull the keys out of the zones column,
-    casting it to a list to eliminate PD series object'''
-    zones = list(filtered_df['zones'])[0]
+    casting it to a list to eliminate PD series object"""
+    zones = list(filtered_df['aggr'])[0]
+    st.write(zones)
     # st.dataframe(data = zones, hide_index=True)
     selected_zone = st.sidebar.selectbox(f'Select a Zone Within {selected_data_center}', zones)
-    current_zone = pd.DataFrame(zones[selected_zone])
+    # current_zone = pd.DataFrame(zones[selected_zone])
 
 
 @log_exceptions(logger=logger)
@@ -191,18 +195,21 @@ def create_tabs(vsys_df):
         make_reservations(edit_fw_df, fw_event)
 
 
-''' Get all device data, then pass this data to other functions
- instead of continuing to query Panorama'''
-all_devices, all_vsys = get_local_data(pano)
+def main():
+    ''' Get all device data, then pass this data to other functions
+    instead of continuing to query Panorama'''
+    all_devices, all_vsys = get_local_data(pano)
 
-## Mock sidebar data
-load_sidebar_data()
-## end mock sidebar data
+    ## Mock sidebar data
+    load_sidebar_data()
+    ## end mock sidebar data
 
-# convert the vsys data to a dataframe
-vsys_df = pd.DataFrame(all_vsys)
-# Create tabbed view
-create_tabs(vsys_df)
+    # convert the vsys data to a dataframe
+    vsys_df = pd.DataFrame(all_vsys)
+    # Create tabbed view
+    create_tabs(vsys_df)
 
 
 # st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
+if __name__ == '__main__':
+    main()

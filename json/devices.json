@@ -1,0 +1,1138 @@
+[
+  {
+    "@name": "026701009112",
+    "serial": "026701009112",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "355946",
+    "merged-cfg-size": "18744628",
+    "predef-cfg-size": "17312397",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "51",
+    "hostname": "FW2-IAD3-990036-1316477",
+    "ip-address": "10.4.87.137",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:13:86",
+    "uptime": "0 days, 0:08:41",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8793-8478",
+    "av-version": "0",
+    "device-dictionary-version": "1-211",
+    "wildfire-version": "0",
+    "threat-version": "8793-8478",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8635-7675",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "0",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "passive",
+      "peer": {
+        "serial": "026701009386"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "893b3650-7149-4ee4-80ac-f8205d5d2776",
+    "certificate-expiry": "2024/09/17 12:03:50",
+    "connected-at": "2024/07/01 12:00:11",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "45"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "None",
+    "device-cert-expiry-date": "N/A"
+  },
+  {
+    "@name": "026701009940",
+    "serial": "026701009940",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "860098",
+    "merged-cfg-size": "20095582",
+    "predef-cfg-size": "18056860",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "54",
+    "hostname": "FW1-ORD-990037-1316471",
+    "ip-address": "10.12.152.19",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:3b:62",
+    "uptime": "35 days, 14:40:12",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8793-8478",
+    "av-version": "0",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "0",
+    "threat-version": "8793-8478",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "20240813.20107",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8635-7675",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "847d3842-870d-43b7-bf51-bac132033f68",
+    "certificate-expiry": "2024/07/18 12:02:03",
+    "connected-at": "2024/07/08 11:30:35",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "yes",
+    "vsys": {
+      "entry": [
+        {
+          "@name": "vsys1",
+          "display-name": "vsys1",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "45"
+        },
+        {
+          "@name": "vsys2",
+          "display-name": "placeholder2",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        },
+        {
+          "@name": "vsys3",
+          "display-name": "placeholder3",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        },
+        {
+          "@name": "vsys4",
+          "display-name": "RES_before-demo_2024-08-08",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        }
+      ]
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/06 11:33:37 CDT"
+  },
+  {
+    "@name": "026701009386",
+    "serial": "026701009386",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "358712",
+    "merged-cfg-size": "19517037",
+    "predef-cfg-size": "18056860",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "53",
+    "hostname": "FW1-IAD3-990036-1316476",
+    "ip-address": "10.4.87.136",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:1c:5a",
+    "uptime": "42 days, 14:12:00",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8793-8478",
+    "av-version": "0",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "0",
+    "threat-version": "8793-8478",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8635-7675",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "active",
+      "peer": {
+        "serial": "026701009112"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "5a62451a-a95b-4ff2-b4a8-2cfc3586705e",
+    "certificate-expiry": "2024/09/18 12:02:03",
+    "connected-at": "2024/07/01 11:59:42",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "45"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/18 02:36:55 CDT"
+  },
+  {
+    "@name": "026701009393",
+    "serial": "026701009393",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "28990",
+    "merged-cfg-size": "19292728",
+    "predef-cfg-size": "18088646",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "52",
+    "hostname": "FW2-IAD3-1941164-1316470",
+    "ip-address": "10.46.36.22",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:18:f2",
+    "uptime": "0 days, 0:07:09",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8836-8695",
+    "av-version": "0",
+    "device-dictionary-version": "115-475",
+    "wildfire-version": "0",
+    "threat-version": "8836-8695",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8813-8585",
+    "prev-av-version": "0",
+    "prev-threat-version": "8813-8585",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "1-211",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "passive",
+      "peer": {
+        "serial": "026701009390"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "3748ac4b-1a89-4c9c-a266-9f857b9b2812",
+    "certificate-expiry": "2024/09/19 12:03:44",
+    "connected-at": "2024/07/01 12:01:03",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "45"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "None",
+    "device-cert-expiry-date": "N/A"
+  },
+  {
+    "@name": "026701009688",
+    "serial": "026701009688",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "67597",
+    "merged-cfg-size": "19698388",
+    "predef-cfg-size": "18688785",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "53",
+    "hostname": "FW4-ORD1-4725244-1338539",
+    "ip-address": "10.10.220.107",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:35:9a",
+    "uptime": "15 days, 0:41:04",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8867-8824",
+    "av-version": "4881-5399",
+    "device-dictionary-version": "136-518",
+    "wildfire-version": "892099-896002",
+    "threat-version": "8867-8824",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "global-protect-client-package-version": "6.1.3",
+    "prev-app-version": "8635-7675",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "0",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "passive",
+      "peer": {
+        "serial": "026701009797"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "a2694bc7-6423-46cf-9da9-13d321fcdf0c",
+    "certificate-expiry": "2024/10/24 19:35:54",
+    "connected-at": "2024/07/26 23:58:59",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "yes",
+    "vsys": {
+      "entry": [
+        {
+          "@name": "vsys1",
+          "display-name": "vsys1",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "f82283898afbf91e11d6f3071db0b241",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys2",
+          "display-name": "NEWHANOVER",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "f82283898afbf91e11d6f3071db0b241",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys3",
+          "display-name": "STJUDE",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "f82283898afbf91e11d6f3071db0b241",
+          "shared-policy-version": "70"
+        },
+        {
+          "@name": "vsys4",
+          "display-name": "INNOVAGE",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        }
+      ]
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/24 13:31:19 CDT"
+  },
+  {
+    "@name": "011901037818",
+    "serial": "011901037818",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "0",
+    "merged-cfg-size": "0",
+    "predef-cfg-size": "0",
+    "max-cfg-size": "0",
+    "percent-cfg-size": "0",
+    "hostname": "FW1-IAD3-4983354-1237860",
+    "ip-address": "10.17.80.17",
+    "ipv6-address": "unknown",
+    "mac-addr": "94:56:41:17:a2:00",
+    "uptime": "111 days, 6:19:47",
+    "family": "800",
+    "model": "PA-850",
+    "sw-version": "10.2.9-h1",
+    "app-version": "8879-8900",
+    "av-version": "4908-5426",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "892159-896062",
+    "threat-version": "8879-8900",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "20240813.20092",
+    "logdb-version": "10.2.0",
+    "global-protect-client-package-version": "6.1.3",
+    "prev-app-version": "8878-8895",
+    "prev-av-version": "4907-5425",
+    "prev-threat-version": "8878-8895",
+    "prev-wildfire-version": "892124-896027",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "3.0.6",
+        "pkginfo": "dlp-3.0.6"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "60401f9b-d5cb-4833-ad3b-1c751389fe14",
+    "certificate-expiry": "2024/10/16 09:56:18",
+    "connected-at": "2024/07/18 03:56:48",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "67"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "None",
+    "device-cert-expiry-date": "N/A"
+  },
+  {
+    "@name": "026701009351",
+    "serial": "026701009351",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "861228",
+    "merged-cfg-size": "21909222",
+    "predef-cfg-size": "19308317",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "59",
+    "hostname": "FW2-ORD1-990037-1316473",
+    "ip-address": "10.12.152.18",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:1c:52",
+    "uptime": "41 days, 21:11:30",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8880-8907",
+    "av-version": "4908-5426",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "0",
+    "threat-version": "8880-8907",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8880-8907",
+    "prev-av-version": "4907-5425",
+    "prev-threat-version": "8880-8907",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "passive",
+      "peer": {
+        "serial": "026701009424"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "c5ce24bc-5247-44b4-8aa3-71a204c7bf4c",
+    "certificate-expiry": "2024/07/18 12:02:02",
+    "connected-at": "2024/07/02 07:53:10",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "yes",
+    "vsys": {
+      "entry": [
+        {
+          "@name": "vsys1",
+          "display-name": "vsys1",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys2",
+          "display-name": "FW-990037-1332634",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys3",
+          "display-name": "FW-990037-1332635",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys4",
+          "display-name": "RES_test_unsynced_2024-09-08",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        }
+      ]
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/05 03:02:00 CDT"
+  },
+  {
+    "@name": "026701009391",
+    "serial": "026701009391",
+    "connected": "no",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "18463",
+    "merged-cfg-size": "19489718",
+    "predef-cfg-size": "18287107",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "53",
+    "hostname": "FW1-IAD3-1941164-1316466",
+    "ip-address": "10.46.36.19",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:1c:4e",
+    "uptime": "31 days, 14:11:23",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8838-8701",
+    "av-version": "0",
+    "device-dictionary-version": "138-523",
+    "wildfire-version": "0",
+    "threat-version": "8838-8701",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "20240802.20107",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8807-8560",
+    "prev-av-version": "0",
+    "prev-threat-version": "8807-8560",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "137-520",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": null,
+    "certificate-expiry": null,
+    "connected-at": null,
+    "custom-certificate-usage": null,
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "45"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/05 02:35:53 CDT"
+  },
+  {
+    "@name": "007951000391056",
+    "serial": "007951000391056",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "0",
+    "merged-cfg-size": "0",
+    "predef-cfg-size": "0",
+    "max-cfg-size": "0",
+    "percent-cfg-size": "0",
+    "deactivated": "no",
+    "hostname": "FW1-LON-1504819-784241",
+    "ip-address": "10.8.120.56",
+    "ipv6-address": "unknown",
+    "mac-addr": "00:50:56:ac:81:d5",
+    "uptime": "101 days, 15:31:19",
+    "family": "vm",
+    "model": "PA-VM",
+    "sw-version": "10.2.9-h1",
+    "app-version": "8843-8724",
+    "av-version": "0",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "0",
+    "threat-version": "0",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "20240813.20106",
+    "logdb-version": "10.2.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "6.1.3",
+    "prev-app-version": "8763-8333",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": [
+        {
+          "@name": "vm_series",
+          "@version": "3.0.6",
+          "pkginfo": "vm_series-3.0.6"
+        },
+        {
+          "@name": "dlp",
+          "@version": "3.0.6",
+          "pkginfo": "dlp-3.0.6"
+        }
+      ]
+    },
+    "ha": {
+      "state": "active",
+      "peer": {
+        "serial": "007951000391057"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "0ccdb1aa-c260-4b55-8227-db892f0933a5",
+    "certificate-expiry": "2024/08/06 12:02:03",
+    "connected-at": "2024/07/01 08:29:16",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": null,
+        "shared-policy-version": null
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "None",
+    "device-cert-expiry-date": "N/A"
+  },
+  {
+    "@name": "026701009392",
+    "serial": "026701009392",
+    "connected": "no",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "86163",
+    "merged-cfg-size": "18479415",
+    "predef-cfg-size": "17312393",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "50",
+    "hostname": "FW1-IAD3-990036-1316475",
+    "ip-address": "10.4.87.135",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:1c:46",
+    "uptime": "16 days, 5:52:04",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8793-8478",
+    "av-version": "0",
+    "device-dictionary-version": "1-211",
+    "wildfire-version": "0",
+    "threat-version": "8793-8478",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8635-7675",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "0",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": null,
+    "certificate-expiry": null,
+    "connected-at": null,
+    "custom-certificate-usage": null,
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "45"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "None",
+    "device-cert-expiry-date": "N/A"
+  },
+  {
+    "@name": "026701009390",
+    "serial": "026701009390",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "29104",
+    "merged-cfg-size": "19489730",
+    "predef-cfg-size": "18277062",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "53",
+    "hostname": "FW1-IAD3-1941164-1316469",
+    "ip-address": "10.46.36.18",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:1c:62",
+    "uptime": "42 days, 14:11:03",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8836-8695",
+    "av-version": "0",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "0",
+    "threat-version": "8836-8695",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "20240813.20106",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8813-8585",
+    "prev-av-version": "0",
+    "prev-threat-version": "8813-8585",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "active",
+      "peer": {
+        "serial": "026701009393"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "384b00ef-7c0b-4680-ad57-9c822e2efee9",
+    "certificate-expiry": "2024/09/19 12:02:03",
+    "connected-at": "2024/07/01 12:01:07",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "no",
+    "vsys": {
+      "entry": {
+        "@name": "vsys1",
+        "display-name": "vsys1",
+        "shared-policy-status": null,
+        "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+        "shared-policy-version": "45"
+      }
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/20 02:50:10 CDT"
+  },
+  {
+    "@name": "026701009797",
+    "serial": "026701009797",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "67685",
+    "merged-cfg-size": "19698847",
+    "predef-cfg-size": "18688785",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "53",
+    "hostname": "FW3-ORD1-4725244-1338489",
+    "ip-address": "10.10.220.106",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:37:d2",
+    "uptime": "15 days, 4:53:37",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8867-8824",
+    "av-version": "4880-5398",
+    "device-dictionary-version": "136-518",
+    "wildfire-version": "891955-895858",
+    "threat-version": "8867-8824",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "0000.00.00.000",
+    "logdb-version": "11.1.0",
+    "global-protect-client-package-version": "6.1.3",
+    "prev-app-version": "8635-7675",
+    "prev-av-version": "0",
+    "prev-threat-version": "0",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "0",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "active",
+      "peer": {
+        "serial": "026701009688"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "bf70c215-b853-4d86-948e-d6b306379c65",
+    "certificate-expiry": "2024/10/24 19:28:03",
+    "connected-at": "2024/07/30 15:32:53",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "yes",
+    "vsys": {
+      "entry": [
+        {
+          "@name": "vsys1",
+          "display-name": "vsys1",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "f82283898afbf91e11d6f3071db0b241",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys2",
+          "display-name": "NEWHANOVER",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "f82283898afbf91e11d6f3071db0b241",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys3",
+          "display-name": "STJUDE",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "f82283898afbf91e11d6f3071db0b241",
+          "shared-policy-version": "70"
+        },
+        {
+          "@name": "vsys4",
+          "display-name": "INNOVAGE",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        }
+      ]
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/24 13:13:31 CDT"
+  },
+  {
+    "@name": "026701009424",
+    "serial": "026701009424",
+    "connected": "yes",
+    "unsupported-version": "no",
+    "wildfire-rt": "no",
+    "local-cfg-size": "862061",
+    "merged-cfg-size": "21910038",
+    "predef-cfg-size": "19308321",
+    "max-cfg-size": "36700160",
+    "percent-cfg-size": "59",
+    "hostname": "FW1-ORD1-990037-1316472",
+    "ip-address": "10.12.152.20",
+    "ipv6-address": "unknown",
+    "mac-addr": "8c:36:7a:23:19:32",
+    "uptime": "42 days, 18:13:12",
+    "family": "1400",
+    "model": "PA-1410",
+    "sw-version": "11.1.4",
+    "app-version": "8880-8907",
+    "av-version": "4908-5426",
+    "device-dictionary-version": "139-526",
+    "wildfire-version": "0",
+    "threat-version": "8880-8907",
+    "url-db": "paloaltonetworks",
+    "url-filtering-version": "20240813.20151",
+    "logdb-version": "11.1.0",
+    "vpnclient-package-version": null,
+    "global-protect-client-package-version": "0.0.0",
+    "prev-app-version": "8880-8907",
+    "prev-av-version": "4907-5425",
+    "prev-threat-version": "8880-8907",
+    "prev-wildfire-version": "0",
+    "prev-device-dictionary-version": "138-523",
+    "patch-version": null,
+    "patch-installed-version": null,
+    "domain": null,
+    "slot-count": "1",
+    "type": null,
+    "tag": null,
+    "plugin_versions": {
+      "entry": {
+        "@name": "dlp",
+        "@version": "5.0.1",
+        "pkginfo": "dlp-5.0.1"
+      }
+    },
+    "ha": {
+      "state": "active",
+      "peer": {
+        "serial": "026701009351"
+      }
+    },
+    "ha-cluster": {
+      "state": "cluster-unknown"
+    },
+    "vpn-disable-mode": "no",
+    "operational-mode": "normal",
+    "certificate-status": null,
+    "certificate-subject-name": "499703b2-d391-4137-bf4e-67c7ea29328a",
+    "certificate-expiry": "2024/07/18 12:02:03",
+    "connected-at": "2024/07/01 10:53:05",
+    "custom-certificate-usage": "no",
+    "multi-vsys": "yes",
+    "vsys": {
+      "entry": [
+        {
+          "@name": "vsys1",
+          "display-name": "vsys1",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys2",
+          "display-name": "FW-990037-1332634",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys3",
+          "display-name": "FW-990037-1332635",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": "b869f2010bdf53410f5e88a2bc264390",
+          "shared-policy-version": "67"
+        },
+        {
+          "@name": "vsys4",
+          "display-name": "RES_test_unsynced_2024-09-08",
+          "shared-policy-status": null,
+          "shared-policy-md5sum": null,
+          "shared-policy-version": null
+        }
+      ]
+    },
+    "last-masterkey-push-status": "Unknown",
+    "last-masterkey-push-timestamp": null,
+    "express-mode": "no",
+    "num_cellular_ports": "0",
+    "device-cert-present": "Valid",
+    "device-cert-expiry-date": "2024/10/04 03:02:36 CDT"
+  }
+]
