@@ -16,6 +16,7 @@ pano.login()
 
 vsys_data = pano.get_vsys_data()
 pprint(vsys_data)
+
 with open('vsys_data.json', 'w') as f:
     f.write(json.dumps(vsys_data, indent=2))
 # vsys_db.insertdata(vsys_data)

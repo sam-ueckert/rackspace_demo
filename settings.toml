@@ -1,5 +1,6 @@
 # General
 RESERVATION_MAX_HOURS = 0.0083
+DB_PATH = "db/zone_data.json"
 
 # VSYS Max by model
 PA1410_MAX_VSYS = 5 # default vsys plus 4

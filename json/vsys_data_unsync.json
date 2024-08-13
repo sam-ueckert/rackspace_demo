@@ -1,0 +1,62 @@
+[
+  {
+    "hostname": "FW1-ORD-990037-1316471",
+    "serial": "026701009940",
+    "vsys_free": 3,
+    "vsys_max": 7,
+    "vsys_in_use": [
+      {
+        "@name": "vsys1",
+        "display-name": "vsys1"
+      },
+      {
+        "@name": "vsys2",
+        "display-name": "placeholder2"
+      },
+      {
+        "@name": "vsys3",
+        "display-name": "placeholder3"
+      },
+      {
+        "@name": "vsys4",
+        "display-name": "RES_before-demo_2024-08-08"
+      }
+    ],
+    "vsys_used": 4
+  },
+  {
+    "serial": "026701009797_026701009688",
+    "hostname": "FW3-ORD1-4725244-1338489_FW4-ORD1-4725244-1338539",
+    "vsys_max": 7,
+    "vsys_used": 4,
+    "vsys_free": 3,
+    "vsys_in_use": [
+      {
+        "@name": "vsys1",
+        "display-name": "vsys1"
+      },
+      {
+        "@name": "vsys2",
+        "display-name": "NEWHANOVER"
+      },
+      {
+        "@name": "vsys3",
+        "display-name": "STJUDE"
+      },
+      {
+        "@name": "vsys4",
+        "display-name": "INNOVAGE"
+      }
+    ],
+    "Synced": true
+  },
+  {
+    "serial": "026701009424_026701009351",
+    "hostname": "FW1-ORD1-990037-1316472_FW2-ORD1-990037-1316473",
+    "vsys_max": null,
+    "vsys_used": null,
+    "vsys_free": null,
+    "vsys_in_use": null,
+    "Synced": false
+  }
+]

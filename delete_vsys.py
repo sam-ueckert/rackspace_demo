@@ -14,8 +14,8 @@ pano.headers
 pano.login()
 
 
-resp = pano.delete_vsys(serial="026701009797", vsys_id=4, )
 resp = pano.delete_vsys(serial="026701009424", vsys_id=4, )
+# resp = pano.delete_vsys(serial="026701009424", vsys_id=4, )
 
 # with open('asdfasdf.json', 'w') as f:
 #     f.write(json.dumps(resp, indent=2))
@@ -24,8 +24,8 @@ resp = pano.delete_vsys(serial="026701009424", vsys_id=4, )
 
 # pano.commit(target='026701009940')
 # pano.commit(target='026701009940')
-pano.commit(target='026701009797')
 pano.commit(target='026701009424')
+# pano.commit(target='026701009424')
 # pano.commit(target='026701009424')
 
 # resp = pano.delete_vsys("test3", 6, "026701009424")
