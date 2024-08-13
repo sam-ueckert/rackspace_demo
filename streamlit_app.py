@@ -54,17 +54,17 @@ def local_vsys_data(_pano: PanoramaAPI, devices):
     return pano.get_vsys_data(devices=devices)
 
 
+'''Retrieves all devices and vysys data from Panorama'''
 @log_exceptions(logger=logger)
 def get_local_data(pano: PanoramaAPI):
-    '''Retrieves all devices and vysys data from Panorama'''
     all_devices = local_device_data(pano)
     all_vsys = local_vsys_data(pano, all_devices)
     return all_devices, all_vsys
 
 
+'''Loads the sidebar data from a json file (later API call)'''
 @log_exceptions(logger=logger)
 def load_sidebar_data():
-    '''Loads the sidebar data from a json file (later API call)'''
     df = pd.read_json(db_path)
     df.rename(columns={'datacenter': 'Data Center'}, inplace=True)
 
@@ -122,7 +122,7 @@ def create_tabs(vsys_df):
             """
             <style>
             .view-container {
-                max-width: 2000px;  /* Adjust the width as needed */
+                max-width: 500px;  /* Adjust the width as needed */
                 margin: auto;
             }
             </style>
@@ -148,17 +148,14 @@ def create_tabs(vsys_df):
         for index, row in vsys_display_df.iterrows():
             
             if not row['Synced']:
-                vsys_display_df.at[index, 'Vsys Display Names'] = ['''Syncing peers.
-                                                                     Please wait 5 min,
-                                                                     clear cache
-                                                                     and refresh.''']
+                vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, clear cache and refresh."]
                 continue
             vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name']
                                                                for i in row['Vsys Display Names']]
         st.dataframe(data=vsys_display_df,
                      hide_index=True,
                      use_container_width=False,
-                     width=None,
+                     width=1300,
                      column_order=['Firewall', 'Vsys Display Names'])
     with reserve:
         st.header('Select Firewalls to Reserve VSYS')
@@ -197,7 +194,9 @@ def create_tabs(vsys_df):
 def main():
     ''' Get all device data, then pass this data to other functions
     instead of continuing to query Panorama'''
+    global all_devices, all_vsys
     all_devices, all_vsys = get_local_data(pano)
+    
 
     ## Mock sidebar data
     load_sidebar_data()
