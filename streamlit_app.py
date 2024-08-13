@@ -54,17 +54,27 @@ def local_vsys_data(_pano: PanoramaAPI, devices):
     return pano.get_vsys_data(devices=devices)
 
 
-'''Retrieves all devices and vysys data from Panorama'''
 @log_exceptions(logger=logger)
 def get_local_data(pano: PanoramaAPI):
+    '''Retrieves all devices and vysys data from Panorama'''
     all_devices = local_device_data(pano)
     all_vsys = local_vsys_data(pano, all_devices)
     return all_devices, all_vsys
 
 
-'''Loads the sidebar data from a json file (later API call)'''
+@log_exceptions(logger=logger)
+def combine_db_pano_data(all_vsys, db): ###
+    '''Combines the data from the CMDB and the Panorama API'''
+    db['serial'] = db['serial'].astype(str)
+    all_vsys['serial'] = all_vsys['serial'].astype(str)
+    merged_df = pd.merge(all_vsys, db, on='serial', how='outer')
+    return merged_df
+
+
+
 @log_exceptions(logger=logger)
 def load_sidebar_data():
+    '''Loads the sidebar data from a json file (later API call)'''
     df = pd.read_json(db_path)
     df.rename(columns={'datacenter': 'Data Center'}, inplace=True)
 
@@ -80,6 +90,7 @@ def load_sidebar_data():
     # st.dataframe(data = zones, hide_index=True)
     selected_zone = st.sidebar.selectbox(f'Select an Aggr Zone Within {selected_data_center}', zones)
     # current_zone = pd.DataFrame(zones[selected_zone])
+    return df, selected_zone, selected_data_center
 
 
 @log_exceptions(logger=logger)
@@ -146,7 +157,6 @@ def create_tabs(vsys_df):
             logger.error(f'Error renaming columns: {e}')
             st.write(e)
         for index, row in vsys_display_df.iterrows():
-            
             if not row['Synced']:
                 vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, clear cache and refresh."]
                 continue
@@ -197,10 +207,12 @@ def main():
     global all_devices, all_vsys
     all_devices, all_vsys = get_local_data(pano)
     st.header(":blue[Rackspace Vsys Dashboard]",)
-    
-    
-    load_sidebar_data()
-       # convert the vsys data to a dataframe
+
+    db, zone, datacenter = load_sidebar_data()
+    # st.write(type(db))
+    merged_df = combine_db_pano_data(db, pd.DataFrame(all_vsys))
+    st.write(merged_df)
+    # convert the vsys data to a dataframe
     vsys_df = pd.DataFrame(all_vsys)
     # Create tabbed view
     create_tabs(vsys_df)
