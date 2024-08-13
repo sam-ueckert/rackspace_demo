@@ -76,7 +76,7 @@ def load_sidebar_data():
     """
     Pull the keys out of the zones column,
     casting it to a list to eliminate PD series object"""
-    zones = list(filtered_df['aggr'])[0]
+    zones = list(filtered_df['aggr'].unique())-
     # st.dataframe(data = zones, hide_index=True)
     selected_zone = st.sidebar.selectbox(f'Select a Zone Within {selected_data_center}', zones)
     # current_zone = pd.DataFrame(zones[selected_zone])
@@ -196,13 +196,11 @@ def main():
     instead of continuing to query Panorama'''
     global all_devices, all_vsys
     all_devices, all_vsys = get_local_data(pano)
+    st.header(":blue[Rackspace Vsys Dashboard]",)
     
-
-    ## Mock sidebar data
+    
     load_sidebar_data()
-    ## end mock sidebar data
-
-    # convert the vsys data to a dataframe
+       # convert the vsys data to a dataframe
     vsys_df = pd.DataFrame(all_vsys)
     # Create tabbed view
     create_tabs(vsys_df)
