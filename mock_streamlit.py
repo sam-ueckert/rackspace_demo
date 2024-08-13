@@ -9,9 +9,9 @@ from pathlib import Path
 # from pprint import pprint
 from log_tools import setup_logger, log_exceptions
 
+synched = False
 
 load_dotenv("./.env")
-st.set_page_config(layout="wide")
 settings = toml.load("settings.toml")
 log_dir = settings['LOG_DIR']
 log_file = settings['LOG_FILE']
@@ -32,8 +32,12 @@ def mock_device_data(_pano: PanoramaAPI):
 
 @st.cache_data
 def mock_vsys_data(_pano: PanoramaAPI, devices):
-    with open('json/vsys_data.json', 'r') as f:
-        local_vsys_data = json.load(f)
+    if synched:
+        with open('json/vsys_data_sync.json', 'r') as f:
+            local_vsys_data = json.load(f)
+    else:
+        with open('json/vsys_data_unsync.json', 'r') as f:
+            local_vsys_data = json.load(f)
     return local_vsys_data
 
 
