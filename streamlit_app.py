@@ -76,9 +76,9 @@ def load_sidebar_data():
     """
     Pull the keys out of the zones column,
     casting it to a list to eliminate PD series object"""
-    zones = list(filtered_df['aggr'].unique())-
+    zones = list(filtered_df['aggr'].unique())
     # st.dataframe(data = zones, hide_index=True)
-    selected_zone = st.sidebar.selectbox(f'Select a Zone Within {selected_data_center}', zones)
+    selected_zone = st.sidebar.selectbox(f'Select an Aggr Zone Within {selected_data_center}', zones)
     # current_zone = pd.DataFrame(zones[selected_zone])
 
 
