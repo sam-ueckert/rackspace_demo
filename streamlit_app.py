@@ -63,11 +63,11 @@ def get_local_data(pano: PanoramaAPI):
 
 
 @log_exceptions(logger=logger)
-def combine_db_pano_data(all_vsys, db): ###
+def combine_db_pano_data(db, all_vsys): ###
     '''Combines the data from the CMDB and the Panorama API'''
-    db['serial'] = db['serial'].astype(str)
+    # st.write(db['serial'])
     all_vsys['serial'] = all_vsys['serial'].astype(str)
-    merged_df = pd.merge(all_vsys, db, on='serial', how='outer')
+    merged_df = pd.merge(all_vsys, db, on='serial', how='left')
     return merged_df
 
 
@@ -75,7 +75,8 @@ def combine_db_pano_data(all_vsys, db): ###
 @log_exceptions(logger=logger)
 def load_sidebar_data():
     '''Loads the sidebar data from a json file (later API call)'''
-    df = pd.read_json(db_path)
+    df = pd.read_json(db_path, dtype={'serial': str})
+    st.write(df['serial'])
     df.rename(columns={'datacenter': 'Data Center'}, inplace=True)
 
     # Create a dropdown menu in the sidebar with the data centers as options
