@@ -277,5 +277,50 @@
         ],
         "serial": "9598415890",
         "vsys_capacity": "6"
-    }
+    },
+    {
+        "account_number": "584236",
+        "aggr": "lab1",
+        "datacenter": "lab",
+        "device": "1111",
+        "failover_device": null,
+        "failover_serial": null,
+        "public_vlans": [
+            "236",
+            "160",
+            "745"
+        ],
+        "serial": "026701009940",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "584236",
+        "aggr": "lab1",
+        "datacenter": "lab",
+        "device": "2221",
+        "failover_device": "2222",
+        "failover_serial": "026701009797",
+        "public_vlans": [
+            "236",
+            "160",
+            "745"
+        ],
+        "serial": "026701009688",
+        "vsys_capacity": "5"
+    },
+    {
+        "account_number": "584236",
+        "aggr": "lab1",
+        "datacenter": "lab",
+        "device": "3331",
+        "failover_device": "3332",
+        "failover_serial": "026701009424",
+        "public_vlans": [
+            "236",
+            "160",
+            "745"
+        ],
+        "serial": "026701009351",
+        "vsys_capacity": "5"
+    },
 ]
