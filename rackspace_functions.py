@@ -112,8 +112,8 @@ def clear_expired_reservations(devices: list, pano: PanoramaAPI):
             pano.commit(target=vsys['serial'])
         except Exception as e:
             print(e)
-    
-     
+
+
 def create_batch_vsys_reservations(reservations: pd.DataFrame, devices: list):
     ''' Creates a batch of VSYS reservations on the Panorama.
       Creates new pano connection for writes, instead of reusing app connection.'''
@@ -136,7 +136,7 @@ def create_batch_vsys_reservations(reservations: pd.DataFrame, devices: list):
         # Create vysy, using the name prefix and the expiration date
         serial = device['serial'].split('_')[0]
         print(f"Creating VSYS: {device['Vsys Device Number']}_{expiration_date} on {serial}")
-        resp = pano.create_vsys(vsys_name=f"RES_{device['Vsys Device Number']}_{expiration_date}",
+        resp = pano.create_vsys(vsys_name=f"{reservation_prefix}{device['Vsys Device Number']}_{expiration_date}",
                                 vsys_id='auto',
                                 serial=serial)
         print(resp)

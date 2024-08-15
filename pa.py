@@ -13,4 +13,3 @@ pano.login()
 
 available_vsys = pano.get_vsys_data()
 pprint(available_vsys)
-

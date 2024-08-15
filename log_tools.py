@@ -76,13 +76,13 @@ def setup_logger(filename='') -> logging.Logger:
                                                   },
                                   },
                        'handlers': {
-                                    'default': { 
+                                    'default': {
                                         'level': 'INFO',
                                         'formatter': 'standard',
                                         'class': 'logging.StreamHandler',
                                         'stream': 'ext://sys.stdout',  # Default is stderr
                                     },
-                                    'logfile': { 
+                                    'logfile': {
                                         'level': 'INFO',
                                         'formatter': 'standard',
                                         'class': 'logging.FileHandler',
