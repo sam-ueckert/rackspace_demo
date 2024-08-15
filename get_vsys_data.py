@@ -21,4 +21,3 @@ with open('vsys_data.json', 'w') as f:
     f.write(json.dumps(vsys_data, indent=2))
 # vsys_db.insertdata(vsys_data)
 # vsys_db.close_connection()
-
