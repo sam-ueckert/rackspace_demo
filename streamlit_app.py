@@ -220,9 +220,14 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
                      hide_index=True,
                      use_container_width=False,
                      width=1300,
-                     column_order=['Firewall', 'Vsys Display Names', 'Serial',
-                                   'Peer Serial', 'Public VLANs', 'Vsys Capacity', 'Used Vsys',
-                                   'Available Vsys'])
+                     column_order=['Firewall',
+                                   'Vsys Display Names',
+                                   'Vsys Capacity',
+                                   'Used Vsys',
+                                   'Available Vsys',
+                                   'Public VLANs',
+                                   'Serial',
+                                   'Peer Serial'])
     with reserve:
         st.header('Select Firewalls to Reserve VSYS')
         # Make selectable rows of firewalss in selected zone
