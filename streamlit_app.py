@@ -78,6 +78,7 @@ def combine_db_pano_data(db, all_vsys):
     merged_df['Available Vsys'] = merged_df['vsys_capacity'] - merged_df['vsys_used']
     return merged_df
 
+
 @log_exceptions(logger=logger)
 def load_db_data():
     '''Loads the data from a json file (later API call)'''
@@ -121,7 +122,6 @@ def make_reservations(edit_fw_df, fw_event):
                     firewall out of sync. Wait, clear cache, and refresh.</span>**''',
                     unsafe_allow_html=True)
             # st.rerun()
-            
         edited_fw_df = st.data_editor(data=edit_fw_df,
                                       use_container_width=True,
                                       hide_index=True,
@@ -187,7 +187,6 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
     view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
     vsys_display_df = rename_culumns(vsys_df)
     filtered_df = filter_tab_view(vsys_display_df, datacenter, zone)
-   
     with view:
         # Apply custom CSS to set the width of the container
         st.markdown(
@@ -211,11 +210,12 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
         for index, row in filtered_df.iterrows():
             if not row['Synced']:
                 filtered_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, "
-                                                                   "clear cache and refresh."]
+                                                               "clear cache and refresh."]
                 continue
             # pulls the vsys display names out of the list of dictionaries
             filtered_df.at[index, 'Vsys Display Names'] = [i['display-name']
-                                                               for i in row['Vsys Display Names']]
+                                                           for i in row['Vsys Display Names']]
+                                                           
         st.dataframe(data=filtered_df,
                      hide_index=True,
                      use_container_width=False,
@@ -267,7 +267,6 @@ def main():
     merged_df = combine_db_pano_data(db, pd.DataFrame(all_vsys))
     datacenter, zone = load_sidebar_data(db)
     # st.write(type(db))
-    
     # convert the vsys data to a dataframe
     vsys_df = pd.DataFrame(merged_df)
     # Create tabbed view
