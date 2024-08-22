@@ -78,26 +78,35 @@ def combine_db_pano_data(db, all_vsys):
     merged_df['Available Vsys'] = merged_df['vsys_capacity'] - merged_df['vsys_used']
     return merged_df
 
+@log_exceptions(logger=logger)
+def load_db_data():
+    '''Loads the data from a json file (later API call)'''
+    df = pd.read_json(db_path, dtype={'serial': str})
+    df.rename(columns={'datacenter': 'Data Center',
+                       'aggr': 'Aggr Zone'}, inplace=True)
+
+    return df
+
 
 @log_exceptions(logger=logger)
-def load_sidebar_data():
+def load_sidebar_data(df):
     '''Loads the sidebar data from a json file (later API call)'''
-    df = pd.read_json(db_path, dtype={'serial': str})
-    df.rename(columns={'datacenter': 'Data Center'}, inplace=True)
 
     # Create a dropdown menu in the sidebar with the data centers as options
+    # add an All option at the top
     selected_data_center = st.sidebar.selectbox('Select a Data Center',
-                                                df['Data Center'].unique())
+                                                ['All'] + list(df['Data Center'].unique()), index=0)
     # Filter the DataFrame based on the selected data center
     filtered_df = df[df['Data Center'] == selected_data_center]
     """
     Pull the keys out of the zones column,
     casting it to a list to eliminate PD series object"""
-    zones = list(filtered_df['aggr'].unique())
-    # st.dataframe(data = zones, hide_index=True)
-    selected_zone = st.sidebar.selectbox(f'Select an Aggr Zone Within {selected_data_center}', zones)
+    zones = list(filtered_df['Aggr Zone'].unique())
+    # add an All option at the top
+    selected_zone = st.sidebar.selectbox(f'Select an Aggr Zone Within {selected_data_center}',
+                                         ['All'] + zones, index=0)
     # current_zone = pd.DataFrame(zones[selected_zone])
-    return df, selected_zone, selected_data_center
+    return selected_data_center, selected_zone
 
 
 @log_exceptions(logger=logger)
@@ -152,9 +161,33 @@ def rename_culumns(vsys_df):
 
 
 @log_exceptions(logger=logger)
-def create_tabs(vsys_df):
+def filter_tab_view(vsys_df, datacenter, zone):
+    '''Filter the DataFrame based on the datacenter and zone'''
+    # st.write(f'Datacenter: {datacenter}, Zone: {zone}')
+    if datacenter and zone and datacenter != 'All' and zone != 'All':
+        filtered_df = vsys_df[
+            (vsys_df['Data Center'] == datacenter) &
+            (vsys_df['Aggr Zone'] == zone)
+        ]
+    elif datacenter and datacenter != 'All':
+        filtered_df = vsys_df[
+           vsys_df['Data Center'] == datacenter
+        ]
+    elif zone and zone != 'All':
+        filtered_df = vsys_df[
+            vsys_df['Aggr Zone'] == zone
+        ]
+    else:
+        filtered_df = vsys_df
+    return filtered_df
+
+
+@log_exceptions(logger=logger)
+def create_tabs(vsys_df, datacenter=None, zone=None):
     view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
     vsys_display_df = rename_culumns(vsys_df)
+    filtered_df = filter_tab_view(vsys_display_df, datacenter, zone)
+   
     with view:
         # Apply custom CSS to set the width of the container
         st.markdown(
@@ -175,15 +208,15 @@ def create_tabs(vsys_df):
         st.header('View Vsys Details')
         logger.info('Viewing Vsys Details')
 
-        for index, row in vsys_display_df.iterrows():
+        for index, row in filtered_df.iterrows():
             if not row['Synced']:
-                vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, "
+                filtered_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, "
                                                                    "clear cache and refresh."]
                 continue
             # pulls the vsys display names out of the list of dictionaries
-            vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name']
+            filtered_df.at[index, 'Vsys Display Names'] = [i['display-name']
                                                                for i in row['Vsys Display Names']]
-        st.dataframe(data=vsys_display_df,
+        st.dataframe(data=filtered_df,
                      hide_index=True,
                      use_container_width=False,
                      width=1300,
@@ -193,7 +226,7 @@ def create_tabs(vsys_df):
     with reserve:
         st.header('Select Firewalls to Reserve VSYS')
         # Make selectable rows of firewalss in selected zone
-        fw_event = st.dataframe(data=vsys_display_df,
+        fw_event = st.dataframe(data=filtered_df,
                                 use_container_width=False,
                                 on_select="rerun",
                                 hide_index=True,
@@ -211,7 +244,7 @@ def create_tabs(vsys_df):
         ''' add all selected rows to a new dataframe.
         Each click will rerun the script, so the dataframe
         will be updated with the new selection'''
-        edit_fw_df = vsys_display_df.iloc[fw_selection]
+        edit_fw_df = filtered_df.iloc[fw_selection]
         # add a column to the new dataframe to allow the user to input a reserved vsys id
         edit_fw_df['Vsys Device Number'] = None
 
@@ -225,14 +258,15 @@ def main():
     global all_devices, all_vsys
     all_devices, all_vsys = get_local_data(pano)
     st.header(":blue[Rackspace Vsys Dashboard]",)
-
-    db, zone, datacenter = load_sidebar_data()
-    # st.write(type(db))
+    db = load_db_data()
     merged_df = combine_db_pano_data(db, pd.DataFrame(all_vsys))
+    datacenter, zone = load_sidebar_data(db)
+    # st.write(type(db))
+    
     # convert the vsys data to a dataframe
     vsys_df = pd.DataFrame(merged_df)
     # Create tabbed view
-    create_tabs(vsys_df)
+    create_tabs(vsys_df, datacenter=datacenter, zone=zone)
 
 
 # st.dataframe(data = edit_fws, hide_index=True)

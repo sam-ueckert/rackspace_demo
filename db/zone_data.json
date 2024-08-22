@@ -310,7 +310,7 @@
     },
     {
         "account_number": "584236",
-        "aggr": "lab1",
+        "aggr": "lab2",
         "datacenter": "lab",
         "device": "3331",
         "failover_device": "3332",
