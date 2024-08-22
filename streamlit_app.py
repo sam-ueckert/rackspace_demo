@@ -27,6 +27,8 @@ logger = setup_logger(log_path)
 
 Click on the Data Center at the left to start
 """
+
+
 @log_exceptions()
 @st.cache_resource
 def create_local_pano():
@@ -63,20 +65,24 @@ def get_local_data(pano: PanoramaAPI):
 
 
 @log_exceptions(logger=logger)
-def combine_db_pano_data(db, all_vsys): ###
+def combine_db_pano_data(db, all_vsys):
     '''Combines the data from the CMDB and the Panorama API'''
-    # st.write(db['serial'])
+    # If HA serials are present, use lower serial as the key
     all_vsys['serial'] = all_vsys['serial'].astype(str)
-    merged_df = pd.merge(all_vsys, db, on='serial', how='left')
-    return merged_df
+    if 'lower_serial' and 'higher_serial' in all_vsys.columns:
+        all_vsys['serial'] = all_vsys.apply(
+            lambda row: row['lower_serial'] if pd.notnull(row['lower_serial']) else row['serial'], axis=1
+        )
 
+    merged_df = pd.merge(all_vsys, db, on='serial', how='left')
+    merged_df['Available Vsys'] = merged_df['vsys_capacity'] - merged_df['vsys_used']
+    return merged_df
 
 
 @log_exceptions(logger=logger)
 def load_sidebar_data():
     '''Loads the sidebar data from a json file (later API call)'''
     df = pd.read_json(db_path, dtype={'serial': str})
-    st.write(df['serial'])
     df.rename(columns={'datacenter': 'Data Center'}, inplace=True)
 
     # Create a dropdown menu in the sidebar with the data centers as options
@@ -125,9 +131,30 @@ def make_reservations(edit_fw_df, fw_event):
 
 
 @log_exceptions(logger=logger)
+def rename_culumns(vsys_df):
+    '''Rename columns for display purposes'''
+    try:
+        vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
+                                                  'vsys_used': 'Used Vsys',
+                                                  'vsys_free': 'Free Vsys',
+                                                  'hostname': "Firewall",
+                                                  'vsys_in_use': 'Vsys Display Names',
+                                                  'higher_serial': 'Peer Serial',
+                                                  'public_vlans': 'Public VLANs',
+                                                  'vsys_capacity': 'Vsys Capacity',
+                                                  'public_vlans': 'Public VLANs',
+                                                  'serial': 'Serial'},
+                                         inplace=False)
+    except Exception as e:
+        logger.error(f'Error renaming columns: {e}')
+        st.write(e)
+    return vsys_display_df
+
+
+@log_exceptions(logger=logger)
 def create_tabs(vsys_df):
     view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
-
+    vsys_display_df = rename_culumns(vsys_df)
     with view:
         # Apply custom CSS to set the width of the container
         st.markdown(
@@ -147,35 +174,24 @@ def create_tabs(vsys_df):
         #             }
         st.header('View Vsys Details')
         logger.info('Viewing Vsys Details')
-        try:
-            vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
-                                                      'vsys_used': 'Used Vsys',
-                                                      'vsys_free': 'Free Vsys',
-                                                      'hostname': "Firewall",
-                                                      'vsys_in_use': 'Vsys Display Names'},
-                                             inplace=False)
-        except Exception as e:
-            logger.error(f'Error renaming columns: {e}')
-            st.write(e)
+
         for index, row in vsys_display_df.iterrows():
             if not row['Synced']:
-                vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, clear cache and refresh."]
+                vsys_display_df.at[index, 'Vsys Display Names'] = ["Syncing peers. Please wait 5 min, "
+                                                                   "clear cache and refresh."]
                 continue
+            # pulls the vsys display names out of the list of dictionaries
             vsys_display_df.at[index, 'Vsys Display Names'] = [i['display-name']
                                                                for i in row['Vsys Display Names']]
         st.dataframe(data=vsys_display_df,
                      hide_index=True,
                      use_container_width=False,
                      width=1300,
-                     column_order=['Firewall', 'Vsys Display Names'])
+                     column_order=['Firewall', 'Vsys Display Names', 'Serial',
+                                   'Peer Serial', 'Public VLANs', 'Vsys Capacity', 'Used Vsys',
+                                   'Available Vsys'])
     with reserve:
         st.header('Select Firewalls to Reserve VSYS')
-
-        vsys_display_df = vsys_df.rename(columns={'vsys_max': 'Max Vsys',
-                                                  'vsys_used': 'Used Vsys',
-                                                  'vsys_free': 'Free Vsys',
-                                                  'hostname': "Firewall"},
-                                         inplace=False)
         # Make selectable rows of firewalss in selected zone
         fw_event = st.dataframe(data=vsys_display_df,
                                 use_container_width=False,
@@ -183,9 +199,10 @@ def create_tabs(vsys_df):
                                 hide_index=True,
                                 selection_mode="multi-row",
                                 column_order=['Firewall',
-                                              'Max Vsys',
+                                              'Vsys Capacity',
                                               'Used Vsys',
-                                              'Free Vsys']
+                                              'Public VLANs',
+                                              'Available Vsys',]
                                 )
 
         st.header('Reserve VSYS on selected Firewalls')
@@ -212,13 +229,13 @@ def main():
     db, zone, datacenter = load_sidebar_data()
     # st.write(type(db))
     merged_df = combine_db_pano_data(db, pd.DataFrame(all_vsys))
-    st.write(merged_df)
     # convert the vsys data to a dataframe
-    vsys_df = pd.DataFrame(all_vsys)
+    vsys_df = pd.DataFrame(merged_df)
     # Create tabbed view
     create_tabs(vsys_df)
 
 
-# st.dataframe(data = edit_fws, hide_index=True)  #TODO add column_config=column_configuration move to new page
+# st.dataframe(data = edit_fws, hide_index=True)
+# #TODO add column_config=column_configuration move to new page
 if __name__ == '__main__':
     main()
