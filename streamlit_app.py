@@ -183,8 +183,34 @@ def filter_tab_view(vsys_df, datacenter, zone):
 
 
 @log_exceptions(logger=logger)
+def create_zone_totals_df(vsys_df):
+    '''Create a DataFrame with zone totals'''
+    try:
+        # Group by 'Aggr Zone' and calculate the totals
+        zone_totals = vsys_df.groupby('Aggr Zone').agg({
+            'Max Vsys': 'sum',
+            'Used Vsys': 'sum',
+            'Free Vsys': 'sum'
+        }).reset_index()
+
+        # Rename columns for display purposes
+        zone_totals_df = zone_totals.rename(columns={
+            'Aggr Zone': 'Aggr Zone',
+            'Max Vsys': 'Total Max Vsys',
+            'Used Vsys': 'Total Used Vsys',
+            'Free Vsys': 'Total Free Vsys'
+        })
+
+        return zone_totals_df
+    except Exception as e:
+        logger.error(f'Error creating zone totals DataFrame: {e}')
+        st.write(e)
+        return pd.DataFrame()
+    
+
+@log_exceptions(logger=logger)
 def create_tabs(vsys_df, datacenter=None, zone=None):
-    view, reserve = st.tabs(['View Vsys Data', 'Create VSYS Reservation'])
+    view, reserve, zone_totals = st.tabs(['View Vsys Data', 'Create VSYS Reservation', 'Zone Totals'])
     vsys_display_df = rename_culumns(vsys_df)
     filtered_df = filter_tab_view(vsys_display_df, datacenter, zone)
     with view:
@@ -255,6 +281,10 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
 
         # Working with the selected rows (firewalls)
         make_reservations(edit_fw_df, fw_event)
+    with zone_totals:
+        st.header('Zone Totals')
+        zone_totals_df = create_zone_totals_df(filtered_df)
+        st.dataframe(data=zone_totals_df, hide_index=True)
 
 
 def main():
