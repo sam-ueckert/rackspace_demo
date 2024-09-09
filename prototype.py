@@ -25,8 +25,25 @@ pano.Password = os.environ['CDWP']
 # pano.headers
 pano.login()
 
+# Local funcions to cache data, using decorator
+def local_device_data(_pano: PanoramaAPI):
+    return pano.get_devices()
 
 
+def local_vsys_data(_pano: PanoramaAPI, devices):
+    return pano.get_vsys_data(devices=devices)
+
+
+def get_local_data(pano: PanoramaAPI, dg_list: list):
+    '''Retrieves all devices and vysys data from Panorama'''
+    all_devices = local_device_data(pano)
+    filtered_serials = rf.get_serials_from_dgs(pano, dg_list)
+    in_scope_devices = rf.filter_devices_by_serial(all_devices, filtered_serials)
+    all_vsys = local_vsys_data(pano, in_scope_devices)
+    return all_devices, all_vsys, in_scope_devices
+
+
+all_devices, all_vsys, in_scope_devices = get_local_data(pano, settings['DEVICE_GRPS'])
 
 pass
 # panrest = PanOSAPI(os.environ['PANORAMA'])

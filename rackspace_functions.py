@@ -27,7 +27,7 @@ def get_serials_from_dgs(pano: PanoramaAPI, device_groups: list) -> list:
     # print(device_serials
 
 
-def filter_devices_by_serial(devices: list, selected_serials: list, device_groups: list) -> list:
+def filter_devices_by_serial(devices: list, selected_serials: list) -> list:
     # Selects only devices where @name matches a list of serials
     filtered_devices = []
     for device in devices:

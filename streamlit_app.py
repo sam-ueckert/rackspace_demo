@@ -60,9 +60,13 @@ def local_vsys_data(_pano: PanoramaAPI, devices):
 def get_local_data(pano: PanoramaAPI, dg_list: list):
     '''Retrieves all devices and vysys data from Panorama'''
     all_devices = local_device_data(pano)
-    in_scop_devices = rf.filter_devices_by_serial(all_devices, dg_list)
-    all_vsys = local_vsys_data(pano, all_devices)
-    return all_devices, all_vsys, in_scop_devices
+    filtered_serials = rf.get_serials_from_dgs(pano, dg_list)
+    in_scope_devices = rf.filter_devices_by_serial(all_devices, filtered_serials)
+    if in_scope_devices:
+        all_vsys = local_vsys_data(pano, in_scope_devices)
+    else:
+        all_vsys = local_vsys_data(pano, all_devices)
+    return all_devices, all_vsys, in_scope_devices
 
 
 @log_exceptions(logger=logger)
