@@ -1,19 +1,34 @@
 from paloaltosdk import PanoramaAPI
-from db import vsysdb
-import os
+import rackspace_functions as rf
+import pprint
+import toml
 import json
-from pprint import pprint
-import rackspace_functions
+import datetime
+import os
+import pandas as pd
+from dotenv import load_dotenv
+
+
+settings = toml.load("settings.toml")
+load_dotenv("./.env")
+search_dgs = settings['DEVICE_GRPS']
+
+# settings = toml.load("settings.toml")
+# from panos.panorama import Panorama, DeviceGroup, DeviceGroupHierarchy, OpState
 
 pano = PanoramaAPI()
-vsys_db = vsysdb()
+# vsys_db = vsysdb()
 
 pano.IP = os.environ['PANORAMA']
 pano.Username = os.environ['CDWU']
 pano.Password = os.environ['CDWP']
-pano.headers
+# pano.headers
 pano.login()
 
+
+
+
+pass
 # panrest = PanOSAPI(os.environ['PANORAMA'])
 # panrest.IP = os.environ['PANORAMA']
 # panrest.Username = os.environ['CDWU']
@@ -23,18 +38,22 @@ pano.login()
 # print(panrest.sw_version)
 # print(pano.get_api_version())
 # serial = '026701009351'
-serial = '026701009424'
-# serial = None
-payload = f'''
-            <entry name="Reserved">
-            </entry>
-                '''
+# serial = '026701009424'
+# # serial = None
+# payload = f'''
+#             <entry name="Reserved">
+#             </entry>
+#                 '''
 # xpath = f"/config/devices/entry/vsys/entry[@name='vsys3']/tag/entry[@name='NOT_USED-test']=<color>color15</color>"
 # xpath = f"/config/devices/entry/vsys/entry"
 # device_list=[]
 # device_list.append(serial)
 # pprint(pano.get_devices(serial=serial))
-device_list = pano.get_devices()
+# device_list = pano.get_devices()
+# device_groups = pano.get_devicegroup_members(device_group='GTS-FLEET-V2')
+# device_groups = pano.get_devicegroup_members(device_group='GTS-VSYS-IAD')
+# with open('device_groups.json', 'w') as f:
+    # json.dump(device_groups, f, indent=4)
 # pprint(rackspace_functions.create_vsys_reservation(serial, vsys_name='test-tag', devices=device_list, pano=pano))
 # xpath = "/config/devices/entry/vsys/entry[@name='vsys6']"
 # xpath = "/config/devices/entry/vsys"
@@ -54,4 +73,4 @@ device_list = pano.get_devices()
 # tags = panrest.get_tags()
 # pprint(tags.reason)
 # pano.commit(target='026701009424')
-rackspace_functions.clear_expired_reservations(devices=device_list, pano=pano)
+# rackspace_functions.clear_expired_reservations(devices=device_list, pano=pano)

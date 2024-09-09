@@ -57,11 +57,12 @@ def local_vsys_data(_pano: PanoramaAPI, devices):
 
 
 @log_exceptions(logger=logger)
-def get_local_data(pano: PanoramaAPI):
+def get_local_data(pano: PanoramaAPI, dg_list: list):
     '''Retrieves all devices and vysys data from Panorama'''
     all_devices = local_device_data(pano)
+    in_scop_devices = rf.filter_devices_by_serial(all_devices, dg_list)
     all_vsys = local_vsys_data(pano, all_devices)
-    return all_devices, all_vsys
+    return all_devices, all_vsys, in_scop_devices
 
 
 @log_exceptions(logger=logger)
@@ -241,7 +242,7 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
             # pulls the vsys display names out of the list of dictionaries
             filtered_df.at[index, 'Vsys Display Names'] = [i['display-name']
                                                            for i in row['Vsys Display Names']]
-                                                           
+
         st.dataframe(data=filtered_df,
                      hide_index=True,
                      use_container_width=False,
@@ -255,9 +256,17 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
                                    'Serial',
                                    'Peer Serial'])
     with reserve:
+        column_config = {
+            "favorite": st.column_config.SelectboxColumn(
+                "✔",
+                help="✔",
+                default=False,
+            )
+        } #  Future use: move to st.data_editor to acitvate this config
         st.header('Select Firewalls to Reserve VSYS')
         # Make selectable rows of firewalss in selected zone
         fw_event = st.dataframe(data=filtered_df,
+                                column_config=column_config,
                                 use_container_width=False,
                                 on_select="rerun",
                                 hide_index=True,
@@ -290,9 +299,10 @@ def create_tabs(vsys_df, datacenter=None, zone=None):
 def main():
     ''' Get all device data, then pass this data to other functions
     instead of continuing to query Panorama'''
-    global all_devices, all_vsys
-    all_devices, all_vsys = get_local_data(pano)
-    st.header(":blue[Rackspace Vsys Dashboard]",)
+    global all_devices, all_vsys, in_scope_devices
+    st.image("rackspace_logo.jpg", width=200)
+    st.header(":blue[Vsys Dashboard]",)
+    all_devices, all_vsys, in_scope_devices = get_local_data(pano, settings['DEVICE_GRPS'])
     db = load_db_data()
     merged_df = combine_db_pano_data(db, pd.DataFrame(all_vsys))
     datacenter, zone = load_sidebar_data(db)

@@ -10,6 +10,31 @@ from dotenv import load_dotenv
 
 settings = toml.load("settings.toml")
 load_dotenv("./.env")
+search_dgs = settings['DEVICE_GRPS']
+
+
+def get_serials_from_dgs(pano: PanoramaAPI, device_groups: list) -> list:
+    ''' Returns a list of serial numbers from a list of device groups as defined by the device groups in settings.toml '''
+    device_serials = []
+    for dg in search_dgs:
+        dg_members = pano.get_devicegroup_members(device_group=dg)
+        # print(dg_members)
+        if dg_members is not None:
+            for device in dg_members:
+                device_serials.append(device['@name'])
+    return device_serials
+
+    # print(device_serials
+
+
+def filter_devices_by_serial(devices: list, selected_serials: list, device_groups: list) -> list:
+    # Selects only devices where @name matches a list of serials
+    filtered_devices = []
+    for device in devices:
+        if device['@name'] in selected_serials:
+            print(device['@name'])
+            filtered_devices.append(device)
+    return filtered_devices
 
 
 def create_vsys_reservation(sn: str, vsys_name: str, devices: list, pano: PanoramaAPI):
@@ -134,7 +159,7 @@ def create_batch_vsys_reservations(reservations: pd.DataFrame, devices: list):
 
     for index, device in reservations.iterrows():
         # Create vysy, using the name prefix and the expiration date
-        serial = device['serial'].split('_')[0]
+        serial = device['Serial'].split('_')[0]
         print(f"Creating VSYS: {device['Vsys Device Number']}_{expiration_date} on {serial}")
         resp = pano.create_vsys(vsys_name=f"{reservation_prefix}{device['Vsys Device Number']}_{expiration_date}",
                                 vsys_id='auto',
