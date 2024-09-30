@@ -1,6 +1,6 @@
 FROM python:3.11
 
-WORKDIR /app
+WORKDIR /vsys_dashboard
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -21,7 +21,7 @@ RUN git submodule update
 RUN pip3 install -r requirements.txt --break-system-packages
 
 # Create a crontab file
-RUN echo "0 */12 * * * /usr/local/bin/python /app/scheduled_tasks.py >> /var/log/cron.log 2>&1" > /etc/cron.d/scheduled_tasks
+RUN echo "0 */12 * * * /usr/local/bin/python /vsys_dashboard/scheduled_tasks.py >> /var/log/cron.log 2>&1" > /etc/cron.d/scheduled_tasks
 
 # Give execution rights on the cron job
 RUN chmod 0644 /etc/cron.d/scheduled_tasks
