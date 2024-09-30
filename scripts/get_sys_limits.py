@@ -1,4 +1,4 @@
-from paloaltosdk import PanoramaAPI
+from paloaltosdk.pa_utils import PanoramaAPI
 
 import os
 from pprint import pprint

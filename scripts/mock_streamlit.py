@@ -2,7 +2,7 @@ import streamlit_app as sa
 import json
 import toml
 import streamlit as st
-from paloaltosdk import PanoramaAPI
+from paloaltosdk.pa_utils import PanoramaAPI
 from dotenv import load_dotenv
 # import time
 from pathlib import Path
