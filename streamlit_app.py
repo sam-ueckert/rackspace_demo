@@ -3,6 +3,7 @@ import streamlit as st
 from paloaltosdk import PanoramaAPI
 from dotenv import load_dotenv
 import rackspace_functions as rf
+from login_ui import login_ui
 # import time
 import toml
 import os
@@ -321,4 +322,6 @@ def main():
 # st.dataframe(data = edit_fws, hide_index=True)
 # #TODO add column_config=column_configuration move to new page
 if __name__ == '__main__':
+    if "authenticated" not in st.session_state:
+        st.session_state["authenticated"] = False
     main()
