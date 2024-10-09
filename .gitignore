@@ -8,3 +8,4 @@ with_admin_tag.json
 xml_to_json.json
 /logs
 /.vscode
+.env
