@@ -1,0 +1,27 @@
+[<DeviceGroup GTS-FLEET-V2 0x7f83ecd8f250>, 
+<DeviceGroup GTS-IAD 0x7f83ec808e90>, 
+<DeviceGroup GTS-ORD 0x7f83ec816c50>, 
+<DeviceGroup NO-RAXGEN 0x7f83ec80da10>, 
+<DeviceGroup GTS-DFW 0x7f83ec80c450>, 
+<DeviceGroup GTS-SYD 0x7f83ec7fe890>, 
+<DeviceGroup GTS-SIN 0x7f83ec7fc890>, 
+<DeviceGroup GTS-HKG 0x7f83ec7f5bd0>, 
+<DeviceGroup GTS-LON 0x7f83ec808650>, 
+<DeviceGroup GTS-FRA 0x7f83ec7f7ed0>, 
+<DeviceGroup GTS-SJC 0x7f83ed422c50>, 
+<DeviceGroup VSYS-INFRA 0x7f83ec815590>,
+<DeviceGroup GTS-VSYS-ORD 0x7f83ec814210>,
+<DeviceGroup GTS-VSYS-DFW 0x7f83ec96c890>, 
+<DeviceGroup DEDICATED 0x7f83ec809490>,
+<DeviceGroup UNDERCLOUD 0x7f83ec829310>,
+ <DeviceGroup GTS-VSYS-IAD 0x7f83ec82bd90>, 
+ <DeviceGroup GTS-VSYS-FRA 0x7f83ec82cbd0>, 
+ <DeviceGroup GTS-VSYS-HKG 0x7f83ec829590>, 
+ <DeviceGroup GTS-VSYS-LON 0x7f83ec835850>,
+  <DeviceGroup GTS-VSYS-SIN 0x7f83ec836810>,
+   <DeviceGroup GTS-VSYS-SJC 0x7f83ec837e10>, 
+   <DeviceGroup GTS-VSYS-SYD 0x7f83ec83d410>]
+root@1fa1f7df8fc7:/app# 
+
+
+"GTS-VSYS-ORD", "GTS-VSYS-DFW", "GTS-VSYS-IAD", "GTS-VSYS-FRA", "GTS-VSYS-HKG", "GTS-VSYS-LON", "GTS-VSYS-SIN", "GTS-VSYS-SJC", "GTS-VSYS-SYD"

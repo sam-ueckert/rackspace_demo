@@ -1,0 +1,10 @@
+altair
+pandas
+streamlit
+requests
+tqdm
+xmltodict
+python-dotenv
+msal
+flask
+

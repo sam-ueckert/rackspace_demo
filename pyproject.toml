@@ -1,0 +1,4 @@
+[project]
+name = "vsys_dashboard"
+version = "1"
+description = "A tool to view and manage vsys allocation on Palo Alto Panorama"

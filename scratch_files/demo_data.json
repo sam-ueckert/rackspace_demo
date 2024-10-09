@@ -1,0 +1,2135 @@
+[
+    {
+        "data_center_name": "east",
+        "zones": {
+            "A": [
+                {
+                    "name": "east-zoneA-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "east-zoneA-pa1410-8",
+                    "vsys": []
+                },
+                {
+                    "name": "east-zoneA-pa1410-9",
+                    "vsys": []
+                }
+            ],
+            "B": [
+                {
+                    "name": "east-zoneB-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "C": [
+                {
+                    "name": "east-zoneC-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "east-zoneC-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "east-zoneC-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "east-zoneC-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneC-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneC-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneC-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "east-zoneC-pa1410-8",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "east-zoneC-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneC-pa1410-10",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "D": [
+                {
+                    "name": "east-zoneD-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneD-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "east-zoneD-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "east-zoneD-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneD-pa1410-5",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "E": [
+                {
+                    "name": "east-zoneE-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneE-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneE-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "F": [
+                {
+                    "name": "east-zoneF-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "east-zoneF-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "east-zoneF-pa1410-10",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "G": [
+                {
+                    "name": "east-zoneG-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "east-zoneG-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "east-zoneG-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "east-zoneG-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "data_center_name": "west",
+        "zones": {
+            "A": [
+                {
+                    "name": "west-zoneA-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneA-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneA-pa1410-10",
+                    "vsys": []
+                }
+            ],
+            "B": [
+                {
+                    "name": "west-zoneB-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneB-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneB-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneB-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "C": [
+                {
+                    "name": "west-zoneC-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneC-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneC-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneC-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneC-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneC-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneC-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneC-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "D": [
+                {
+                    "name": "west-zoneD-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneD-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneD-pa1410-3",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneD-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneD-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneD-pa1410-6",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneD-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneD-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneD-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "E": [
+                {
+                    "name": "west-zoneE-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-8",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneE-pa1410-10",
+                    "vsys": []
+                }
+            ],
+            "F": [
+                {
+                    "name": "west-zoneF-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneF-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "G": [
+                {
+                    "name": "west-zoneG-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-5",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneG-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneG-pa1410-10",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "H": [
+                {
+                    "name": "west-zoneH-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneH-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneH-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "I": [
+                {
+                    "name": "west-zoneI-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "J": [
+                {
+                    "name": "west-zoneJ-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneJ-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneJ-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneJ-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneJ-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "K": [
+                {
+                    "name": "west-zoneK-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneK-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "west-zoneK-pa1410-3",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneK-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "L": [
+                {
+                    "name": "west-zoneL-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneL-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneL-pa1410-3",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneL-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "M": [
+                {
+                    "name": "west-zoneM-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneM-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneM-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "west-zoneM-pa1410-4",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneM-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "west-zoneM-pa1410-6",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneM-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "N": [
+                {
+                    "name": "west-zoneN-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneN-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneN-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneN-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "west-zoneN-pa1410-5",
+                    "vsys": []
+                },
+                {
+                    "name": "west-zoneN-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "data_center_name": "south",
+        "zones": {
+            "A": [
+                {
+                    "name": "south-zoneA-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneA-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneA-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneA-pa1410-4",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneA-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneA-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneA-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "B": [
+                {
+                    "name": "south-zoneB-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneB-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneB-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneB-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneB-pa1410-5",
+                    "vsys": []
+                }
+            ],
+            "C": [
+                {
+                    "name": "south-zoneC-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneC-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneC-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneC-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "D": [
+                {
+                    "name": "south-zoneD-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneD-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneD-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "E": [
+                {
+                    "name": "south-zoneE-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneE-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneE-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneE-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneE-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneE-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "F": [
+                {
+                    "name": "south-zoneF-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneF-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneF-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "G": [
+                {
+                    "name": "south-zoneG-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneG-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "H": [
+                {
+                    "name": "south-zoneH-pa1410-1",
+                    "vsys": []
+                }
+            ],
+            "I": [
+                {
+                    "name": "south-zoneI-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneI-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneI-pa1410-3",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneI-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneI-pa1410-5",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "J": [
+                {
+                    "name": "south-zoneJ-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneJ-pa1410-8",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneJ-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "K": [
+                {
+                    "name": "south-zoneK-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneK-pa1410-2",
+                    "vsys": []
+                }
+            ],
+            "L": [
+                {
+                    "name": "south-zoneL-pa1410-1",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneL-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneL-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneL-pa1410-4",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneL-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneL-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "M": [
+                {
+                    "name": "south-zoneM-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneM-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneM-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "N": [
+                {
+                    "name": "south-zoneN-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneN-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneN-pa1410-3",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneN-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "O": [],
+            "P": [
+                {
+                    "name": "south-zoneP-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-5",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneP-pa1410-6",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneP-pa1410-9",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneP-pa1410-10",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "Q": [
+                {
+                    "name": "south-zoneQ-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneQ-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "south-zoneQ-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "R": [
+                {
+                    "name": "south-zoneR-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneR-pa1410-2",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneR-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneR-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneR-pa1410-5",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneR-pa1410-6",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneR-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneR-pa1410-8",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneR-pa1410-9",
+                    "vsys": []
+                },
+                {
+                    "name": "south-zoneR-pa1410-10",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "S": [
+                {
+                    "name": "south-zoneS-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneS-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "south-zoneS-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "south-zoneS-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "south-zoneS-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "data_center_name": "north",
+        "zones": {
+            "A": [
+                {
+                    "name": "north-zoneA-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneA-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneA-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneA-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "B": [
+                {
+                    "name": "north-zoneB-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneB-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneB-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneB-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneB-pa1410-5",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneB-pa1410-6",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneB-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneB-pa1410-8",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "C": [
+                {
+                    "name": "north-zoneC-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneC-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneC-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneC-pa1410-4",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneC-pa1410-5",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneC-pa1410-6",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneC-pa1410-7",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneC-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "D": [
+                {
+                    "name": "north-zoneD-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneD-pa1410-8",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneD-pa1410-9",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "E": [
+                {
+                    "name": "north-zoneE-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ],
+            "F": [
+                {
+                    "name": "north-zoneF-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-2",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneF-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneF-pa1410-10",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "G": [
+                {
+                    "name": "north-zoneG-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneG-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "H": [
+                {
+                    "name": "north-zoneH-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-6",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneH-pa1410-7",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneH-pa1410-9",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "I": [
+                {
+                    "name": "north-zoneI-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneI-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "J": [
+                {
+                    "name": "north-zoneJ-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneJ-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneJ-pa1410-3",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneJ-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneJ-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneJ-pa1410-6",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneJ-pa1410-7",
+                    "vsys": []
+                }
+            ],
+            "K": [
+                {
+                    "name": "north-zoneK-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneK-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneK-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                }
+            ],
+            "L": [
+                {
+                    "name": "north-zoneL-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneL-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneL-pa1410-3",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneL-pa1410-4",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneL-pa1410-5",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                },
+                {
+                    "name": "north-zoneL-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneL-pa1410-7",
+                    "vsys": []
+                },
+                {
+                    "name": "north-zoneL-pa1410-8",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                }
+            ],
+            "M": [],
+            "N": [
+                {
+                    "name": "north-zoneN-pa1410-1",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                }
+            ],
+            "O": [
+                {
+                    "name": "north-zoneO-pa1410-1",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneO-pa1410-2",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2"
+                    ]
+                },
+                {
+                    "name": "north-zoneO-pa1410-3",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3"
+                    ]
+                },
+                {
+                    "name": "north-zoneO-pa1410-4",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneO-pa1410-5",
+                    "vsys": [
+                        "vsys1"
+                    ]
+                },
+                {
+                    "name": "north-zoneO-pa1410-6",
+                    "vsys": [
+                        "vsys1",
+                        "vsys2",
+                        "vsys3",
+                        "vsys4"
+                    ]
+                }
+            ]
+        }
+    }
+]
