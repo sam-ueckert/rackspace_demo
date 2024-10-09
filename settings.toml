@@ -13,7 +13,7 @@ RESERVATION_PREFIX = "RES-"
 
 # Oauth provider URL
 AUTHORITY_URL = "https://login.microsoftonline.com/"
-REDIRECT_URI = "localhost:8005"
+REDIRECT_URI = "http://localhost:8505"
 # Logging setup
 LOG_LEVEL = "INFO"
 LOG_FILE = "vsys_dashboard.log"
