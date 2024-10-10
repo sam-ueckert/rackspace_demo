@@ -1,2 +1,6 @@
 [runner]
 magicEnabled = false
+
+[server]
+port = 8502
+headless = true

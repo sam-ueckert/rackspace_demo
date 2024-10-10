@@ -4,10 +4,17 @@ WORKDIR /vsys_dashboard
 
 RUN apt-get update && apt-get install -y \
     build-essential \
+    wget \
+    gnupg \
     curl \
     software-properties-common \
     git \
     cron \
+    && https://nginx.org/keys/nginx_signing.key \
+    && cat nginx_signing.key | apt-key add - \
+    && apt-get -qq update \
+    && apt-get install -y nginx \
+    && rm nginx_signing.key \
     && rm -rf /var/lib/apt/lists/*
 
 #RUN git clone https://github.com/streamlit/streamlit-example.git .
