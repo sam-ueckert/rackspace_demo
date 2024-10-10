@@ -1,6 +1,6 @@
 FROM python:3.11
 
-WORKDIR /vsys_dashboard
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -30,8 +30,6 @@ RUN pip3 install -r requirements.txt --break-system-packages
 ENV PYTHONPATH "${PYTHONPATH}:/app"
 
 ENV PATH "${PATH}:/app:/app/paloaltosdk"
-
-WORKDIR /app
 
 # Create a crontab file
 RUN echo "0 */12 * * * /usr/local/bin/python /vsys_dashboard/scheduled_tasks.py >> /var/log/cron.log 2>&1" > /etc/cron.d/scheduled_tasks
