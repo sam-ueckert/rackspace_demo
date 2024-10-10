@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install -y \
 
 #RUN git clone https://github.com/streamlit/streamlit-example.git .
 
-RUN git clone https://github.com/sam-ueckert/rackspace_demo .
+RUN git clone https://github.com/rax-nsi-cdw/vsys-dashboard.git .
 
 RUN git submodule init
 
