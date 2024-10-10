@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     git \
     cron \
-    && https://nginx.org/keys/nginx_signing.key \
+    && wget https://nginx.org/keys/nginx_signing.key \
     && cat nginx_signing.key | apt-key add - \
     && apt-get -qq update \
     && apt-get install -y nginx \
@@ -50,6 +50,6 @@ HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
 # ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8500", "--server.address=0.0.0.0"]
 
-ENTRYPOINT ["/home/streamlitapp/bin/start-nginx.sh"]
+ENTRYPOINT ["/app/start-nginx.sh"]
 
 CMD 
