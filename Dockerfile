@@ -27,6 +27,12 @@ RUN git submodule update
 
 RUN pip3 install -r requirements.txt --break-system-packages
 
+ENV PYTHONPATH "${PYTHONPATH}:/app"
+
+ENV PATH "${PATH}:/app:/app/paloaltosdk"
+
+WORKDIR /app
+
 # Create a crontab file
 RUN echo "0 */12 * * * /usr/local/bin/python /vsys_dashboard/scheduled_tasks.py >> /var/log/cron.log 2>&1" > /etc/cron.d/scheduled_tasks
 
@@ -40,8 +46,12 @@ RUN crontab /etc/cron.d/scheduled_tasks
 RUN touch /var/log/cron.log
 
 
-EXPOSE 8501
+EXPOSE 8502
 
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8500", "--server.address=0.0.0.0"]
+# ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8500", "--server.address=0.0.0.0"]
+
+ENTRYPOINT ["/home/streamlitapp/bin/start-nginx.sh"]
+
+CMD 

@@ -9,3 +9,4 @@ xml_to_json.json
 /logs
 /.vscode
 .env
+.devcontainer
