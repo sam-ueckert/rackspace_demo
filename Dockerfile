@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     git \
     cron \
+    nano \
     && https://nginx.org/keys/nginx_signing.key \
     && cat nginx_signing.key | apt-key add - \
     && apt-get -qq update \
@@ -17,9 +18,16 @@ RUN apt-get update && apt-get install -y \
     && rm nginx_signing.key \
     && rm -rf /var/lib/apt/lists/*
 
-#RUN git clone https://github.com/streamlit/streamlit-example.git .
+# Change permissions of private key used to read reapo
+RUN chmod 600 /app/.ssh/github.rsa
 
-RUN git clone https://github.com/sam-ueckert/rackspace_demo .
+# Copy ssh config file that includes details for depploy key for github
+RUN cp /app/.ssh/config /root/.ssh/
+
+# RUN git clone https://github.com/rax-nsi-cdw/vsys-dashboard .
+
+# RUN git clone git@github-vsys:rax-nsi-cdw/vsys-dashboard .
+RUN git clone git@github-vsys:sam-ueckert/rackspace_demo.git .
 
 RUN git submodule init
 
