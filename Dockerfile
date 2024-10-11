@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
     git \
     cron \
     nano \
-    && https://nginx.org/keys/nginx_signing.key \
+    && wget https://nginx.org/keys/nginx_signing.key \
     && cat nginx_signing.key | apt-key add - \
     && apt-get -qq update \
     && apt-get install -y nginx \
@@ -22,10 +22,10 @@ RUN apt-get update && apt-get install -y \
 COPY .ssh/* /app/.ssh
 
 # Change permissions of private key used to read reapo
-RUN chmod 600 /app/.ssh/github.rsa
+RUN chmod 600 .ssh/github.rsa
 
 # Copy ssh config file that includes details for depploy key for github
-RUN cp /app/.ssh/config /root/.ssh/
+RUN cp ssh/config /root/.ssh/
 
 # RUN git clone https://github.com/rax-nsi-cdw/vsys-dashboard .
 
