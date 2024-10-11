@@ -18,6 +18,9 @@ RUN apt-get update && apt-get install -y \
     && rm nginx_signing.key \
     && rm -rf /var/lib/apt/lists/*
 
+# Copy file from current directory on build host (clone of repo) into the build context in the image
+COPY .ssh/* /app/.ssh
+
 # Change permissions of private key used to read reapo
 RUN chmod 600 /app/.ssh/github.rsa
 
