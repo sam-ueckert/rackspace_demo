@@ -10,3 +10,4 @@ xml_to_json.json
 /.vscode
 .env
 .devcontainer
+github_token.txt
