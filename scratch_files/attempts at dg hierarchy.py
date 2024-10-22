@@ -9,14 +9,14 @@ from panos.panorama import Panorama, DeviceGroup, DeviceGroupHierarchy, OpState
 pano = PanoramaAPI()
 vsys_db = vsysdb()
 
-pano.IP = os.environ['PANORAMA']
-pano.Username = os.environ['CDWU']
-pano.Password = os.environ['CDWP']
+pano.IP = settings['PANORAMA']
+pano.Username = os.environ['SSO_UNAME']
+pano.Password = os.environ['SSO_PW']
 # pano.headers
 # pano.login()
 
 
-sdk_pano = Panorama(hostname=os.environ['PANORAMA'], api_username=os.environ['CDWU'], api_password=os.environ['CDWP'])
+sdk_pano = Panorama(hostname=settings['PANORAMA'], api_username=os.environ['SSO_UNAME'], api_password=os.environ['SSO_PW'])
 
 # devices = sdk_pano.refresh_devices(expand_vsys=False, include_device_groups=True)
 
@@ -43,10 +43,10 @@ print(dgs)
 
 
 
-# panrest = PanOSAPI(os.environ['PANORAMA'])
-# panrest.IP = os.environ['PANORAMA']
-# panrest.Username = os.environ['CDWU']
-# panrest.Password = os.environ['CDWP']
+# panrest = PanOSAPI(settings['PANORAMA'])
+# panrest.IP = settings['PANORAMA']
+# panrest.Username = os.environ['SSO_UNAME']
+# panrest.Password = os.environ['SSO_PW']
 # panrest.headers
 # panrest.login()
 # print(panrest.sw_version)

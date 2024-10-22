@@ -148,9 +148,9 @@ def create_batch_vsys_reservations(reservations: pd.DataFrame, devices: list):
     # Set the expiration date to the max reservation (set in .toml file) days from today
     expiration_date = (today + datetime.timedelta(days=max_reservation_days)).strftime('%Y-%d-%m')
     pano = PanoramaAPI()
-    pano.IP = os.environ['PANORAMA']
-    pano.Username = os.environ['CDWU']
-    pano.Password = os.environ['CDWP']
+    pano.IP = settings['PANORAMA']
+    pano.Username = os.environ['SSO_UNAME']
+    pano.Password = os.environ['SSO_PW']
     try:
         pano.login()
     except Exception as e:

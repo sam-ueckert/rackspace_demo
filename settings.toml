@@ -11,6 +11,8 @@ RESERVATION_MAX_DAYS = 2
 # Prefix for vsys resrevation name
 RESERVATION_PREFIX = "RES-"
 
+# Panorama details
+PANORAMA = "204.232.167.99"
 # Oauth provider URL
 AUTHORITY_URL = "https://login.microsoftonline.com/"
 REDIRECT_URI = "http://localhost:8505"
@@ -21,3 +23,7 @@ LOG_DIR = "logs/"
 
 # Device Group List Scope
 DEVICE_GRPS = ["GTS-VSYS-ORD", "GTS-VSYS-DFW", "GTS-VSYS-IAD", "GTS-VSYS-FRA", "GTS-VSYS-HKG", "GTS-VSYS-LON", "GTS-VSYS-SIN", "GTS-VSYS-SJC", "GTS-VSYS-SYD"]
+
+# Facts details
+FACTS_TOKEN_URL = "https://identity-internal.api.rackspacecloud.com/v2.0/tokens"
+

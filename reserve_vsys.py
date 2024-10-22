@@ -14,9 +14,9 @@ vsys_name = 'RESERVED-test'
 reserved_in_db = True
 if reserved_in_db:
     pano = PanoramaAPI()
-    pano.IP = os.environ['PANORAMA']
-    pano.Username = os.environ['CDWU']
-    pano.Password = os.environ['CDWP']
+    pano.IP = settings['PANORAMA']
+    pano.Username = os.environ['SSO_UNAME']
+    pano.Password = os.environ['SSO_PW']
     pano.headers
     pano.login()
 

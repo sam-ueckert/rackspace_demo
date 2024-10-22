@@ -34,9 +34,9 @@ Click on the Data Center at the left to start
 @st.cache_resource
 def create_local_pano():
     pano = PanoramaAPI()
-    pano.IP = os.environ['PANORAMA']
-    pano.Username = os.environ['CDWU']
-    pano.Password = os.environ['CDWP']
+    pano.IP = settings['PANORAMA']
+    pano.Username = os.environ['SSO_UNAME']
+    pano.Password = os.environ['SSO_PASS']
     pano.login()
     return pano
 

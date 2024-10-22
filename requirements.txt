@@ -7,4 +7,6 @@ xmltodict
 python-dotenv
 msal
 flask
+toml
+
 

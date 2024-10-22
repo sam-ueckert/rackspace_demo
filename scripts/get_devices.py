@@ -4,9 +4,9 @@ import json
 import os
 
 pano = PanoramaAPI()
-pano.IP = os.environ['PANORAMA']
-pano.Username = os.environ['CDWU']
-pano.Password = os.environ['CDWP']
+pano.IP = settings['PANORAMA']
+pano.Username = os.environ['SSO_UNAME']
+pano.Password = os.environ['SSO_PW']
 pano.login()
 
 devices = pano.get_devices()
