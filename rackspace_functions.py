@@ -98,6 +98,7 @@ def get_all_reserved_vsys(devices_vsys: list):
 def find_expired_reservations(list_of_reservations: list):
     '''Finds tags that begin with "RESDATE-" and checks if the
       date is more than settings['RESERVATION_MAX_DAYS'] days old. '''
+    '''Written to use tags for reservation. Rackspace declined this approach'''
     vsys_to_delete = []
     max_reservation_days = settings['RESERVATION_MAX_DAYS']
     today = datetime.datetime.now()
