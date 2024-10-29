@@ -48,11 +48,13 @@ RUN crontab /etc/cron.d/scheduled_tasks
 RUN touch /var/log/cron.log
 
 
-EXPOSE 8502
+EXPOSE 5000 8501
 
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+# HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "streamlit_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+
+
+ENTRYPOINT ["/bin/sh", "-c", "python3 /app/api_server.py & streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0"]
 
 # ENTRYPOINT ["/app/start-nginx.sh"]
 
