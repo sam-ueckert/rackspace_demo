@@ -1,0 +1,1 @@
+curl -vLk https://identity-internal.api.rackspacecloud.com/v2.0/tokens -X POST -H "Content-Type: application/json" -d '{"auth": {"RAX-AUTH:domain": {"name": "Rackspace"},"passwordCredentials": {    "username": "sam7330", "password": "New Fleet.4.feet" }}}'
