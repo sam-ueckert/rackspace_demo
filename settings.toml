@@ -28,5 +28,6 @@ DEVICE_GRPS = ["GTS-VSYS-ORD", "GTS-VSYS-DFW", "GTS-VSYS-IAD", "GTS-VSYS-FRA", "
 FACTS_TOKEN_URL = "https://identity-internal.api.rackspacecloud.com/v2.0/tokens"
 FACTS_URL = "https://facts.nsi.rackspace.com/vsys_infra/vsys_infra"
 PER_PAGE = 50
+
  
 
