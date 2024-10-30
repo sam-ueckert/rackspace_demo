@@ -34,6 +34,7 @@ log.exception("exception")
 """
 import logging
 import logging.config
+from logging.handlers import RotatingFileHandler
 import functools
 # import json
 from typing import Callable, ParamSpec, TypeVar, Optional
@@ -82,17 +83,18 @@ def setup_logger(filename='') -> logging.Logger:
                                         'class': 'logging.StreamHandler',
                                         'stream': 'ext://sys.stdout',  # Default is stderr
                                     },
-                                    'logfile': {
+                                    'rotating': {
                                         'level': 'INFO',
                                         'formatter': 'standard',
-                                        'class': 'logging.FileHandler',
+                                        'class': 'logging.handlers.RotatingFileHandler',
                                         'filename': filename,
+                                        'maxBytes': 10*1024*1024,
                                     },
                                 },
                        'loggers': {
                             '': {
                                 'level': 'INFO',
-                                'handlers': ['default', 'logfile']
+                                'handlers': ['default', 'rotating']
                                 },
                                 }
                         }

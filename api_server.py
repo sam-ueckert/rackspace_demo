@@ -4,11 +4,16 @@ from dotenv import load_dotenv
 from rackspace_functions import create_batch_vsys_reservations
 import pandas as pd
 import toml
+from pathlib import Path
 import os
-
+from log_tools import setup_logger
 
 load_dotenv("./.env")
 settings = toml.load("settings.toml")
+log_dir = settings['LOG_DIR']
+log_file = settings['LOG_FILE']
+log_path = Path(log_dir) / log_file
+logger = setup_logger(log_path)
 
 
 def create_local_pano():
@@ -17,6 +22,7 @@ def create_local_pano():
     pano.Username = os.environ['SSO_UNAME']
     pano.Password = os.environ['SSO_PASS']
     return pano
+
 
 app = Flask(__name__)
 
@@ -63,6 +69,8 @@ def create_batch_reservation():
 
     return jsonify(resp)
 
+
+# resp = pano.delete_vsys(serial="026701009940", vsys_id=3, )
 
 if __name__ == '__main__':
     pano = create_local_pano()
