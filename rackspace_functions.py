@@ -16,7 +16,7 @@ search_dgs = settings['DEVICE_GRPS']
 def get_serials_from_dgs(pano: PanoramaAPI, device_groups: list) -> list:
     ''' Returns a list of serial numbers from a list of device groups as defined by the device groups in settings.toml '''
     device_serials = []
-    for dg in search_dgs:
+    for dg in device_groups:
         dg_members = pano.get_devicegroup_members(device_group=dg)
         # print(dg_members)
         if dg_members is not None:
