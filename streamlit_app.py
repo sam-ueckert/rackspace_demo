@@ -36,7 +36,7 @@ def create_local_pano():
     pano = PanoramaAPI()
     pano.IP = settings['PANORAMA']
     pano.Username = os.environ['SSO_UNAME']
-    pano.Password = os.environ['SSO_PASS']
+    pano.Password = os.environ['SSO_PW']
     pano.login()
     return pano
 
