@@ -52,6 +52,7 @@ def local_device_data(_pano: PanoramaAPI):
     return pano.get_devices()
 
 
+devices = local_device_data(pano)
 @st.cache_data
 def local_vsys_data(_pano: PanoramaAPI, devices):
     return pano.get_vsys_data(devices=devices)
