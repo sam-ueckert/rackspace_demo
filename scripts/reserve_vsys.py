@@ -1,0 +1,50 @@
+from db import vsysdb
+from paloaltosdk.pa_utils import PanoramaAPI
+import os
+from pprint import pprint
+
+vsys_db = vsysdb()
+
+sn = '026701009424_026701009351'
+vsys_name = 'RESERVED-test'
+
+# reserved_in_db = vsys_db.reserve_vsys(sn, vsys_name)
+
+# vsys_db.close_connection()
+reserved_in_db = True
+if reserved_in_db:
+    pano = PanoramaAPI()
+    pano.IP = settings['PANORAMA']
+    pano.Username = os.environ['SSO_UNAME']
+    pano.Password = os.environ['SSO_PW']
+    pano.headers
+    pano.login()
+
+    if '_' in sn:
+        # this means the HA Pair, find the active to create the vsys
+        devices = pano.get_devices()
+        found_active_peer = False
+        peer_index = -1
+
+        while not found_active_peer and peer_index < 2:
+            peer_index += 1
+
+            for device in devices:
+            
+                if device['@name'] == sn.split('_')[peer_index]:
+                    if 'ha' in device:
+                        if device['ha']['state'] == 'active':
+
+                            pprint(device['@name'])
+                            found_active_peer = True
+                            resp = pano.create_vsys(vsys_name=vsys_name, vsys_id='auto', serial=device['@name'], tag_name='RESERVED')
+                            print(pano.commit(target=device['@name']))
+                            
+                    else:
+                        raise Exception("VSYS RESERVE FAILED: Unable to determine HA Active Peer. HA Not present.")
+    
+     
+    #print("Vsys Reserved!")
+else:
+    print("No VSYS Available to reserve.")
+
