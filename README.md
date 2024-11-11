@@ -20,6 +20,23 @@ The `./scripts` directory contains a set of example scripts that use the CDW `pa
 
 Runtime settings are loaded from the `settings.toml` file. These may be adjusted without rebuilding the image. The following are descriptions of those settings.
 
-### General
+### Description of settings
 
 - `DB_PATH = "db/zone_data.json"`: This setting specifies the destination of the Facts API query results.
+- `RESERVATION_MAX_HOURS = 0.0083`: The maximum number of hours a VSYS reservation is valid.
+- `RESERVATION_MAX_DAYS = 21`: The maximum number of days a reservation is valid.
+- `RESERVATION_PREFIX = "RES-"`: The prefix for VSYS reservation names.
+- `PANORAMA = "204.232.167.99"`: The IP address of the Panorama instance.
+- `AUTHORITY_URL = "https://login.microsoftonline.com/"`: The URL for the OAuth provider.
+- `REDIRECT_URI = "http://localhost:8505"`: The redirect URI for OAuth authentication.
+- `LOG_LEVEL = "INFO"`: The logging level.
+- `LOG_FILE = "vsys_dashboard.log"`: The name of the log file.
+- `LOG_DIR = "logs/"`: The directory where log files are stored.
+- `DEVICE_GRPS = ["GTS-VSYS-ORD", "GTS-VSYS-DFW", "GTS-VSYS-IAD", "GTS-VSYS-FRA", "GTS-VSYS-HKG", "GTS-VSYS-LON", "GTS-VSYS-SIN", "GTS-VSYS-SJC", "GTS-VSYS-SYD"]`: The list of device groups in that define the inventory of vsys-eligible devices
+- `FACTS_TOKEN_URL = "https://identity-internal.api.rackspacecloud.com/v2.0/tokens"`: The URL to obtain a token for the Facts API.
+- `FACTS_URL = "https://facts.nsi.rackspace.com/vsys_infra/vsys_infra"`: The URL for the Facts API.
+- `PER_PAGE = 50`: The number of results per page for the Facts API.
+
+
+## UI Description
+## API Description

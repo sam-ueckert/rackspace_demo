@@ -3,10 +3,10 @@ RESERVATION_MAX_HOURS = 0.0083
 DB_PATH = "db/zone_data.json"
 
 # VSYS Max by model
-PA1410_MAX_VSYS = 5 # default vsys plus 4
+# PA1410_MAX_VSYS = 5 # default vsys plus # Deprecated. We now read this value from the facts file.
 
 # Max days a reservation is valid
-RESERVATION_MAX_DAYS = 2
+RESERVATION_MAX_DAYS = 21
 
 # Prefix for vsys resrevation name
 RESERVATION_PREFIX = "RES-"
@@ -28,6 +28,9 @@ DEVICE_GRPS = ["GTS-VSYS-ORD", "GTS-VSYS-DFW", "GTS-VSYS-IAD", "GTS-VSYS-FRA", "
 FACTS_TOKEN_URL = "https://identity-internal.api.rackspacecloud.com/v2.0/tokens"
 FACTS_URL = "https://facts.nsi.rackspace.com/vsys_infra/vsys_infra"
 PER_PAGE = 50
+
+# Scheduled tasks
+
 
  
 

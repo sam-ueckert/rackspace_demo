@@ -35,8 +35,8 @@ Click on the Data Center at the left to start
 def create_local_pano():
     pano = PanoramaAPI()
     pano.IP = settings['PANORAMA']
-    pano.Username = os.environ['SSO_UNAME']
-    pano.Password = os.environ['SSO_PW']
+    pano.Username = os.environ['PANO_UNAME']
+    pano.Password = os.environ['PANO_PW']
     pano.login()
     return pano
 
@@ -46,7 +46,7 @@ pano = create_local_pano()
 
 
 # Local funcions to cache data, using decorator
-@log_exceptions(logger=logger)
+# @log_exceptions(logger=logger)
 @st.cache_data
 def local_device_data(_pano: PanoramaAPI):
     return pano.get_devices()
