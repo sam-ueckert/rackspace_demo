@@ -73,7 +73,8 @@ def save_facts_to_db(device_list):
 
 if __name__ == "__main__":
     # Get the token
-    token = get_token(USERNAME, PASSWORD, "Rackspace", TOKEN_URL)['id']
+    response = get_token(USERNAME, PASSWORD, "Rackspace", TOKEN_URL)
+    token = response['access']['token']['id']
     # Modify FACTS_URL to include the per_page parameter
     url = FACTS_URL + f"?page=1&per_page={PER_PAGE}"
     firstpage = get_facts(token, url)

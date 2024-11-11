@@ -16,6 +16,6 @@ log_file = settings['LOG_FILE']
 log_path = Path(log_dir) / log_file
 logger = setup_logger(log_path)
 # logger.info('Loadin Vsys Dashboard')
-print('Running scheduled tasks')
+# print('Running scheduled tasks')
 
 
